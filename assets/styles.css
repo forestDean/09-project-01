@@ -1,0 +1,73 @@
+:root {}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Solway&display=fallback');
+
+* {
+    box-sizing: border-box;
+  }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color:white;
+}
+
+.container-fluid {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/* hack to remove default Bootstrap input styling */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.card {
+    background-color:white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+} 
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  
+}
