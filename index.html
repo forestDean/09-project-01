@@ -6,16 +6,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico"/>
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"/> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+  integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"/>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" 
+  integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous" referrerpolicy="no-referrer"/> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="./assets/styles.css" />
-  <title>Project 01</title>
+  <title>MealDeal</title>
 </head>
 
 <body>
 
-<!-- CODE HERE -->
+  <div class="container">
+
+    <div class="row header align-items-center px-2 py-3">
+      <div class="col-sm-2">
+        <img src="" height=80px width=80px alt="logo">
+      </div>
+      <div class="col-sm-8 py-auto">
+        <h1>MealDeal</h1>
+      </div>    
+      <div class="col-sm-2">
+    </div> 
+
+    </div class="row test">
+      <form>
+        <div class="formhead px-3 mb-3 py-1">
+          <legend>Search Parameters</legend>
+        </div>
+        <div class="form-group">
+          <label for="searchTerm">Search Term:</label>
+          <input type="text" class="form-control" id="searchTerm" placeholder="Artificial Intelligence">
+        </div>
+        <div class="form-group">
+          <label for="searchTerm">Number of Records to Retrieve:</label>
+          <input type="text" class="form-control" id="searchTerm" placeholder="10">
+        </div>
+        <div class="form-group">
+          <label for="startYear">Start Year (optional):</label>
+          <input type="text" class="form-control" id="startYear" placeholder="2020">
+        </div>
+        <div class="form-group">
+          <label for="endYear">End Year (optional):</label>
+          <input type="text" class="form-control" id="endYear" placeholder="2023">
+        </div>
+        <div class="row form-group mt-4">
+          <div class="col-sm-6"><button id="searchButton" type="button" class="btn btn-lg btn-block">Search</button></div>
+          <div class="col-sm-6"><button id="clearButton" type="button" class="btn btn-lg btn-block">Clear</button></div>
+        </div>
+      </form>
+
+
+      <div class="row" id="topArticles">
+        <div class="col-sm-12 articleHead px-3 mb-3 py-1"><legend>Top Articles</legend></div>
+        <div class="col-sm-12" id="searchResult">
+
+          SEARCH RESULTS GO HERE >>
+
+        </div>
+
+      </div>
+
+      <footer>
+        <small class="credits">Designed by the codeBreakers<br><span id="creditLinks"><a href="https://github.com/fot28">Fotios Polymenakos</a> &amp <a href="https://github.com/forestdean">John Walton</a></span></small>
+      </footer>
+
+    </div>
+
+  <!-- e/o container -->
+  </div>
 
 
 
