@@ -1,55 +1,16 @@
-$(window).ready(function() { 
+var queryURL =
+	"https://api.edamam.com/api/recipes/v2?type=public&q=omelete&app_id=3cbe9e09&app_key=791997979c9223cd8754bcf36f69f9c2";
 
-    //  ************ code here ************
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//FUNCTION TO GET AND AUTO PLAY YOUTUBE VIDEO FROM DATATAG
-function autoPlayYouTubeModal(){
-    var trigger = $("body").find('[data-toggle="modal"]');
-    trigger.click(function() {
-      var theModal = $(this).data( "target" ),
-      videoSRC = $(this).attr( "data-theVideo" ), 
-      videoSRCauto = videoSRC+"?autoplay=1" ;
-      $(theModal+' iframe').attr('src', videoSRCauto);
-      $(theModal+' button.close').click(function () {
-          $(theModal+' iframe').attr('src', videoSRC);
-      });   
-    });
-  }
-
-
-  $(document).ready(function(){
-    autoPlayYouTubeModal();
-  });
-
-
-
-
-
-$('#myModal').on('hidden.bs.modal', function () {
-    $('#myModal iframe').removeAttr('src');
-})
-
-
-}); // e/o onload
+// Make AJAX request to API
+$.ajax({
+	url: queryURL,
+	method: "GET",
+}).then(function (response) {
+	// Extract relevant data from API response
+	console.log(response);
+	console.log(response.hits);
+	console.log(response.hits[0]);
+	console.log(response.hits[0].recipe.images.regular);
+	console.log(response.hits[0].recipe.ingredientLines);
+	console.log(response.hits[0].recipe.url);
+});
