@@ -11,15 +11,26 @@ body {
   color:rgb(50, 104, 145);
 }
 
-.container-fluid {
+.container {
+  width: 1000px;
   margin-top: 20px;
-  margin-bottom: 40px;
+  border: 1px solid red;
+ } 
+
+main {
+background-color: rgba(0, 0, 0, 0.1);
+margin-top: 30px;
 }
 
-.container {
-  width: 800px;
-  margin-top: 20px;
- } 
+#photo {
+  color:rgba(50, 104, 145, 0.5);
+  width: 300px;
+  height: 300px ;
+}
+
+input::placeholder {
+  color:rgba(50, 104, 145, 0.3) !important;
+}
 
 /* hack to remove default Bootstrap input styling */
 input:-webkit-autofill,

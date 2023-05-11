@@ -19,7 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" 
     integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
 
   <title>MealDeal</title>
 </head>
@@ -29,43 +29,66 @@
   <div class="container">
 
     <div class="row header align-items-center px-2 py-3">
-      <div class="col-sm-2">
-        <img src="" height="80px" width="80px" alt="logo">
-      </div>
-      <div class="col-sm-8 py-auto">
-        <h1>MealDeal</h1>
-      </div>    
-      <div class="col-sm-2">
+        <div class="col-sm-2">
+          <img src="" height="80px" width="80px" alt="logo">
+        </div>
+
+        <div class="col-sm-8 py-auto">
+          <h1>MealDeal</h1>
+        </div> 
+
+        <div class="col-sm-2">
+        </div> 
     </div> 
 
-    </div class="row test">
-      <form>
-        <div class="formhead px-3 mb-3 py-1">
-          <legend>Search Parameters</legend>
-        </div>
-        <div class="form-group">
-          <label for="searchTerm">Search Term:</label>
-          <input type="text" class="form-control" id="searchTerm" placeholder="Artificial Intelligence">
-        </div>
-        <div class="form-group">
-          <label for="searchTerm">Number of Records to Retrieve:</label>
-          <input type="text" class="form-control" id="searchTerm" placeholder="10">
-        </div>
-        <div class="form-group">
-          <label for="startYear">Start Year (optional):</label>
-          <input type="text" class="form-control" id="startYear" placeholder="2020">
-        </div>
-        <div class="form-group">
-          <label for="endYear">End Year (optional):</label>
-          <input type="text" class="form-control" id="endYear" placeholder="2023">
-        </div>
-        <div class="row form-group mt-4">
-          <div class="col-sm-6"><button id="searchButton" type="button" class="btn btn-lg btn-block">Search</button></div>
-          <div class="col-sm-6"><button id="clearButton" type="button" class="btn btn-lg btn-block">Clear</button></div>
-        </div>
-      </form>
+    <div class="row searchForm">
+
+      <div class="col-4">
+        <main>
+          <img id="photo" src="./images/www_castingimage_com_spandeli_0186.jpg" alt="food image" width="300px" height="300px">
+          <h2>Recipes</h2>
+        <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor placerat leo, eget pulvinar velit luctus luctus. Pellentesque congue turpis non erat facilisis, vel malesuada ipsum sollicitudin. Nam pharetra maximus volutpat. Phasellus luctus sed sapien eget ullamcorper. Duis sed neque vitae nulla tincidunt vehicula id cursus risus. Nullam lacinia quam dui, vel semper est elementum vitae. Suspendisse ac elementum nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras gravida eros ultricies nibh porta, pretium mollis nisl facilisis. Vivamus dictum leo at ipsum convallis consequat at nec magna.<br>
+          Cras varius rhoncus ante ac mattis. Donec eget risus tellus. Sed augue lorem, malesuada sit amet tempor eu, mollis a arcu. Praesent consequat id velit dictum hendrerit. Donec dictum, lacus laoreet facilisis dictum, nulla elit ullamcorper eros, a interdum felis quam id dolor. Vivamus dignissim metus mi, mollis euismod velit facilisis sed. Nunc in felis enim. Mauris in consequat risus, vel consequat arcu. Curabitur malesuada eu justo sed rhoncus. Sed ac sapien et enim venenatis mattis. Phasellus sit amet pulvinar justo, eu commodo ipsum. Ut et nisl aliquet nibh dignissim eleifend.
+        </article>
+        </main>
+    </div>
+
+      <div class="col-8">
+        <aside> 
+          <form>
+            <div class="formhead px-3 mb-3 py-1">
+              <legend>Search Parameters</legend>
+            </div>
+            <div class="form-group">
+              <label for="searchTerm">Search Term:</label>
+              <input type="text" class="form-control" id="searchTerm" placeholder="Artificial Intelligence">
+            </div>
+            <div class="form-group">
+              <label for="searchTerm">Number of Records to Retrieve:</label>
+              <input type="text" class="form-control" id="searchTerm" placeholder="10">
+            </div>
+            <div class="form-group">
+              <label for="startYear">Start Year (optional):</label>
+              <input type="text" class="form-control" id="startYear" placeholder="2020">
+            </div>
+            <div class="form-group">
+              <label for="endYear">End Year (optional):</label>
+              <input type="text" class="form-control" id="endYear" placeholder="2023">
+            </div>
+            <div class="row form-group mt-4">
+              <div class="col-sm-6"><button id="searchButton" type="button" class="btn btn-lg btn-block">Search</button></div>
+              <div class="col-sm-6"><button id="clearButton" type="button" class="btn btn-lg btn-block">Clear</button></div>
+            </div>
+          </form>
+        </aside>
+      </div>
 
 
+
+  </div>
+
+    
+    
       <div class="row" id="topArticles">
         <div class="col-sm-12 articleHead px-3 mb-3 py-1"><legend>Top Articles</legend></div>
         <div class="col-sm-12" id="searchResult">
@@ -75,6 +98,7 @@
         </div>
 
       </div>
+    </div>
 
       <!-- MODAL -->
       <!-- e/o MODAL -->
@@ -83,7 +107,7 @@
         <small class="credits">Designed by the codeBreakers<br><span id="creditLinks"><a href="https://github.com/fot28">Fotios Polymenakos</a> &amp <a href="https://github.com/forestdean">John Walton</a></span></small>
       </footer>
 
-    </div>
+    </div> 
 
   <!-- e/o container -->
   </div>
