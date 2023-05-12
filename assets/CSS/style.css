@@ -1,21 +1,24 @@
-:root {}
+:root {
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Solway&display=fallback');
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Solway&display=fallback");
 
 * {
-    box-sizing: border-box;
-  }
+	box-sizing: border-box;
+}
 
 body {
-  font-family: 'Lato', sans-serif;
-  color:rgb(50, 104, 145);
+	font-family: "Lato", sans-serif;
+	color: rgb(50, 104, 145);
 }
+
 
 .container {
   width: 1000px;
   margin-top: 20px;
   border: 1px solid red;
  } 
+
 
  aside {
   /* background-color: rgba(50, 104, 145, 0.1); */
@@ -56,49 +59,49 @@ input::placeholder {
 /* hack to remove default Bootstrap input styling */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-  transition: background-color 600000s 0s, color 600000s 0s;
+	transition: background-color 600000s 0s, color 600000s 0s;
 }
 
 .card {
-    background-color:white;
-  }
+	background-color: white;
+}
 
 .header {
-  background-color:rgb(50, 104, 145);
-  }
+	background-color: rgb(50, 104, 145);
+}
 
 h1 {
-  text-align: center;
-  color: white;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+	text-align: center;
+	color: white;
+	font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 legend {
-  color:rgb(50, 104, 145);
+	color: rgb(50, 104, 145);
 }
 
 .formhead {
-  background-color:rgba(50, 104, 145, 0.1);
-  width: 100%;
-  height: 50px;
-  
+	background-color: rgba(50, 104, 145, 0.1);
+	width: 100%;
+	height: 50px;
 }
 
 form {
-  margin: 30px -15px 20px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
+	margin: 30px -15px 20px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
 }
 
 .form-group {
-  padding: 0 15px;
+	padding: 0 15px;
 }
 
 .btn {
-  border: 1px solid lightgray;
-  color:rgb(50, 104, 145);
-  background-color:rgba(50, 104, 145, 0.1);
+	border: 1px solid lightgray;
+	color: rgb(50, 104, 145);
+	background-color: rgba(50, 104, 145, 0.1);
 }
+
 
 #recipeVideos {
   margin-top: 30px;
@@ -107,7 +110,7 @@ form {
 }
 
 .articleHead {
-  background-color:rgba(50, 104, 145, 0.1);
+	background-color: rgba(50, 104, 145, 0.1);
 }
 
 #videoResult{
@@ -137,48 +140,26 @@ iframe {
 }
 
 footer {
-  margin: 30px 0 40px;
-  text-align: center;
+	margin: 30px 0 40px;
+	text-align: center;
 }
 
 footer a {
-  color:rgb(50, 104, 145);
-  font-weight: bold;
+	color: rgb(50, 104, 145);
+	font-weight: bold;
 }
 
 .credits {
-  font-size: 16px ;
-}  
+	font-size: 16px;
+}
 
 #creditLinks {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .btn-modal {
-  margin: 40px 0 ;
+	margin: 40px 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ================= RESPONSIVE MEDIA QUERIES ================= */
 
@@ -187,20 +168,16 @@ No media query since this is the default in Bootstrap */
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-
+@media (min-width: 768px) {
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-
-} 
+}
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  
 }
