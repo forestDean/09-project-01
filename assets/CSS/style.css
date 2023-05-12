@@ -1,5 +1,5 @@
-:root {
-}
+/* :root {
+} */
 
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Solway&display=fallback");
 
@@ -27,13 +27,12 @@ body {
 
  article {
   padding: 5px;
-  padding-left: ;
+  /* padding-left: ; */
   /* background-color: rgba(50, 104, 145, 0.1); */
  }
 
-main {
-
-}
+/* main {
+} */
 
 #photo {
   /* color:rgba(50, 104, 145, 0.5); */
