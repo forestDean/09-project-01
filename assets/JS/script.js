@@ -84,4 +84,29 @@ $("#searchButton").on("click", function (event) {
 
 	// Fetch recipe data for the entered food name
 	fetchData(foodInput, dietInput, alergiesInput, mealTypeInput);
+	searchVideos(foodInput);
 });
+
+$(document).ready(function () {});
+
+function searchVideos(foodInput) {
+	// YouTube Data API v3 endpoint for search
+	var endpoint = "https://www.googleapis.com/youtube/v3/search";
+
+	// API key (replace with your own)
+	var apiKey = "AIzaSyBa9lY2xF5vOJmaKGWxcJGgtx0w9fByZSk";
+
+	// Parameters for the API request
+	var params = {
+		part: "snippet",
+		q: foodInput,
+		type: "video",
+		key: apiKey,
+	};
+
+	// Send the API request
+	$.get(endpoint, params, function (data) {
+		// displayResults(data.items);
+		console.log(data);
+	});
+}
