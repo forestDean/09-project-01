@@ -43,13 +43,13 @@
 
     <div class="row searchForm">
 
-      <div class="col-4">
+      <div class="col-5">
         <aside>
-          <img id="photo" src="./images/www_castingimage_com_spandeli_0186.jpg" alt="food image" width="300px" height="300px">
+          <img id="photo" src="./images/www_castingimage_com_spandeli_0186.jpg" class="align-self-center" alt="food image" width="300px" height="300px">
 
-            <article>          
+            <article class="pl-2 mt-3">          
                 <h2>Ingredients</h2>
-                <ul class="ingredients">
+                <ul class="ingredients pl">
                     <li>2 to 3 eggs per omelet</li>
                     <li>2 tablespoons butter per omelet</li>
                     <li>1 tablespoon milk or cream</li>
@@ -66,28 +66,34 @@
       </div>
   
 
-      <div class="col-8">
+      <div class="col-7 ">
         <main> 
-          <form>
+          <form class="">
             <div class="formhead px-3 mb-3 py-1">
               <legend>Search</legend>
             </div>
             <div class="form-group">
-              <label for="searchTerm">Search Term:</label>
-              <input type="text" class="form-control" id="searchTerm" placeholder="Artificial Intelligence">
+              <!-- <label for="searchTerm">Search Term:</label> -->
+              <input type="text" class="form-control" id="searchTerm" placeholder="Lasagne">
             </div>
-            <div class="form-group">
-              <label for="searchTerm">Number of Records to Retrieve:</label>
-              <input type="text" class="form-control" id="searchTerm" placeholder="10">
-            </div>
-            <div class="form-group">
-              <label for="startYear">Start Year (optional):</label>
-              <input type="text" class="form-control" id="startYear" placeholder="2020">
-            </div>
-            <div class="form-group">
-              <label for="endYear">End Year (optional):</label>
-              <input type="text" class="form-control" id="endYear" placeholder="2023">
-            </div>
+            
+            <select class="form-control custom-select mt-2">
+              <label for="01">Search Term:</label>
+              <option selected id="01">Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+
+            <select class="form-control custom-select mt-4">
+              <label for="01">Search Term:</label>
+              <option selected id="01">Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+
+
             <div class="row form-group mt-4">
               <div class="col-sm-6"><button id="searchButton" type="button" class="btn btn-lg btn-block">Search</button></div>
               <div class="col-sm-6"><button id="clearButton" type="button" class="btn btn-lg btn-block">Clear</button></div>
@@ -102,11 +108,11 @@
 
     
     
-      <div class="row" id="topArticles">
-        <div class="col-sm-12 articleHead px-3 mb-3 py-1"><legend>Videos</legend></div>
+      <div class="row" id="recipeVideos">
+        <div class="col-sm-12 articleHead px-3 mb-3 py-1"><h3>Recipe Videos</h3></div>
         <div class="col-sm-12" id="searchResult">
 
-          SEARCH RESULTS GO HERE   >>
+          VIDEO SEARCH RESULTS GO HERE   >>
 
         </div>
 
