@@ -36,7 +36,6 @@
 
     <div id="header" class="row header align-items-center px-2 py-3">
         <div class="col-sm-2">
-          <!-- <img src="" height="80px" width="80px" alt="logo"> -->
         </div>
 
         <div class="col-sm-8 py-auto">
@@ -50,10 +49,10 @@
     <div class="row">
 
       <div class="col-md-12 col-lg-5 order-2 order-lg-1">
-        <aside class="text-center text-lg-left">
-          <img id="photo" src="./images/www_castingimage_com_spandeli_0186.jpg" class="rounded ml-md-0" alt="food image" width="300px" height="300px">
+        <aside class="text-center text-lg-left ml-2">
+          <img id="photo" src="./images/www_castingimage_com_spandeli_0186.jpg" class="ml-md-3" alt="recipe image" width="300px" height="300px">
 
-            <article class="text-lg-left pl-2 mt-3 ml-3">          
+            <article class="text-lg-left pl-2 mt-3 ml-4">          
                 <h2 class="ml-lg-4">Ingredients</h2>          
                 <ul class="ingredients mt-3">
                     <li>2 to 3 eggs per omelet</li>
@@ -72,19 +71,19 @@
       </div>
   
 
-      <div class="col-md-12 col-lg-7 order-1 order-lg-2">
+      <div class="col-md-12 col-lg-7 order-1 order-lg-2 pl-3">
         <main> 
-          <form class="">
+          <form class="mr-4">
             <div class="formhead px-3 mb-3 py-1">
-              <legend>Search</legend>
+              <legend>Recipe Selection:</legend>
             </div>
-            <div class="form-group">
+            <div class="form-group form-control-lg">
               <!-- <label for="searchTerm">Search Term:</label> -->
               <input type="text" class="form-control" id="searchTerm" placeholder="Lasagne">
             </div>
             
-          <div class="selectWrapper">            
-            <select class="form-control custom-select mt-2" id="diet">
+          <div class="form-group">            
+            <select class="form-control custom-select mt-1" id="diet">
               <option selected data-name="" >Diet: (optional)</option>
               <option value="1" data-name="&diet=balanced">Balanced</option>
               <option value="2" data-name="&diet=high-fiber">High-fiber</option>
@@ -95,9 +94,9 @@
             </select>
           </div>
 
-          <div class="selectWrapper">  
-            <select class="form-control custom-select mt-4" id="alergies">
-              <option selected data-name="">Alergies: (optional)</option>
+          <div class="selectWrapper form-group">  
+            <select class="form-control custom-select mt-1" id="alergies">
+              <option selected data-name="">Allergies: (optional)</option>
               <option value="1" data-name="&health=alcohol-free">Alcohol-free</option>
               <option value="2" data-name="&health=celery-free">Celery-free</option>
               <option value="3" data-name="&health=dairy-free">Dairy-free</option>
@@ -116,8 +115,8 @@
             </select>
           </div>
 
-          <div class="selectWrapper">  
-            <select class="form-control custom-select mt-4" id="meal-type">
+          <div class="selectWrapper form-group">  
+            <select class="form-control custom-select mt-1" id="meal-type">
               <option selected data-name="" >Meal type: (optional)</option>
               <option value="1" data-name="&mealType=breakfast">Breakfast</option>
               <option value="2" data-name="&mealType=lunch">Lunch</option>
@@ -127,8 +126,7 @@
 
 
             <div class="row form-group mt-4">
-              <div class="col-sm-6"><button id="searchButton" type="button" class="btn btn-lg btn-block">Search</button></div>
-              <div class="col-sm-6"><button id="clearButton" type="reset" class="btn btn-lg btn-block">Clear</button></div>
+              <div class="col-12"><button id="searchButton" type="button" class="btn btn-lg btn-block mb-4">Search</button></div>
             </div>
           </form>
         </main>
@@ -141,7 +139,7 @@
     
     
       <div class="row" id="recipeVideos">
-        <div class="col-sm-12 articleHead text-center mb-3 py-1"><h3>Recipe Videos</h3></div>
+        <div class="col-sm-12 articleHead text-center mb-3 py-2"><h3>Recipe Videos</h3></div>
         <div class="col-sm-12" id="videoResult">
 
           VIDEO SEARCH RESULTS GO HERE   >>
