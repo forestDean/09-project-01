@@ -82,20 +82,44 @@
             </div>
             
           <div class="selectWrapper">            
-            <select class="form-control custom-select mt-2">
-              <option selected id="allergies" >Allergies:</option>
-              <option value="1">Gluten-free</option>
-              <option value="2">Peanut-free</option>
-              <option value="3">Dairy-free</option>
+            <select class="form-control custom-select mt-2" id="diet">
+              <option selected data-name="" >Diet: (optional)</option>
+              <option value="1" data-name="&diet=balanced">Balanced</option>
+              <option value="2" data-name="&diet=high-fiber">High-fiber</option>
+              <option value="3" data-name="&diet=high-protein">High-protein</option>
+              <option value="4" data-name="&diet=low-carb">Low-carb</option>
+              <option value="5" data-name="&diet=low-fat">Low-fat</option>
+              <option value="6" data-name="&diet=low-sodium">Low-sodium</option>
             </select>
           </div>
 
           <div class="selectWrapper">  
-            <select class="form-control custom-select mt-4">
-              <option selected id="diet">Diet:</option>
-              <option value="1">Vegetarian</option>
-              <option value="2">Vegan</option>
-              <option value="3">Kosher</option>
+            <select class="form-control custom-select mt-4" id="alergies">
+              <option selected data-name="">Alergies: (optional)</option>
+              <option value="1" data-name="&health=alcohol-free">Alcohol-free</option>
+              <option value="2" data-name="&health=celery-free">Celery-free</option>
+              <option value="3" data-name="&health=dairy-free">Dairy-free</option>
+              <option value="4" data-name="&health=egg-free">Egg-free</option>
+              <option value="5" data-name="&health=fish-free">Fish-free</option>
+              <option value="6" data-name="&health=gluten-free">Gluten-free</option>
+              <option value="7" data-name="&health=peanut-free">Peanut-free</option>
+              <option value="8" data-name="&health=pork-free">Pork-free</option>
+              <option value="9" data-name="&health=red-meat-free">Red-meat-free</option>
+              <option value="10" data-name="&health=sesame-free">Sesame-free</option>
+              <option value="11" data-name="&health=soy-free">Soy-free</option>
+              <option value="12" data-name="&health=no-oil-added">No-oil-added</option>
+              <option value="13" data-name="&health=pescatarian">Pescatarian</option>
+              <option value="15" data-name="&health=vegan">Vegan</option>
+              <option value="16" data-name="&health=vegetarian">Vegetarian</option>
+            </select>
+          </div>
+
+          <div class="selectWrapper">  
+            <select class="form-control custom-select mt-4" id="meal-type">
+              <option selected data-name="" >Meal type: (optional)</option>
+              <option value="1" data-name="&mealType=breakfast">Breakfast</option>
+              <option value="2" data-name="&mealType=lunch">Lunch</option>
+              <option value="3" data-name="&mealType=dinner">Dinner</option>
             </select>
           </div>
 
@@ -143,8 +167,7 @@
   </div>
 
 
-<!-- Moment.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="./assets/JS/script.js"></script>
 
 </body>
 

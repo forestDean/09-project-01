@@ -1,19 +1,20 @@
 // Initialize recentSearch array from localStorage
 var recentSearch = JSON.parse(localStorage.getItem("recentSearch")) || [];
 
-// var recentSearch = ["omelete", "roast", "carbonara", "peas"];
-
 $(function () {
 	$("#searchTerm").autocomplete({
 		source: recentSearch,
 	});
 });
 
-function fetchData(foodInput) {
+function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 	var queryURL =
 		"https://api.edamam.com/api/recipes/v2?type=public&q=" +
 		foodInput +
-		"&app_id=3cbe9e09&app_key=791997979c9223cd8754bcf36f69f9c2";
+		"&app_id=3cbe9e09&app_key=791997979c9223cd8754bcf36f69f9c2" +
+		dietInput +
+		alergiesInput +
+		mealTypeInput;
 	console.log(queryURL);
 	// Make AJAX request to API
 	$.ajax({
@@ -69,11 +70,18 @@ $("#searchButton").on("click", function (event) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 
-	// Get the city name input value and trim any whitespace
+	// Get the food name input value and trim any whitespace and capitalize the first letter
 	var foodInput = $("#searchTerm").val().trim();
 	foodInput = capitalizeFirstLetter(foodInput);
+	var dietInput = $("#diet").find(":selected").data("name");
+	var alergiesInput = $("#alergies").find(":selected").data("name");
+	var mealTypeInput = $("#meal-type").find(":selected").data("name");
+	console.log(dietInput);
+	console.log(alergiesInput);
+	console.log(mealTypeInput);
+
 	saveHistory(foodInput);
 
-	// Fetch weather data for the entered city name
-	fetchData(foodInput);
+	// Fetch recipe data for the entered food name
+	fetchData(foodInput, dietInput, alergiesInput, mealTypeInput);
 });
