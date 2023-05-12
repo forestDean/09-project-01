@@ -84,4 +84,24 @@ $("#searchButton").on("click", function (event) {
 
 	// Fetch recipe data for the entered food name
 	fetchData(foodInput, dietInput, alergiesInput, mealTypeInput);
+	searchVideos(foodInput);
 });
+
+$(document).ready(function () {});
+
+function searchVideos(foodInput) {
+	// Construct the API query URL
+	var queryURL =
+		"https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
+		foodInput +
+		"-recipe&type=video&key=AIzaSyBa9lY2xF5vOJmaKGWxcJGgtx0w9fByZSk";
+
+	// Make AJAX request to the API
+	$.ajax({
+		url: queryURL,
+		method: "GET",
+	}).then(function (response) {
+		// Extract relevant data from the API response
+		console.log(response);
+	});
+}
