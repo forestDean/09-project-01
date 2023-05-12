@@ -87,13 +87,16 @@ $("#searchButton").on("click", function (event) {
 	searchVideos(foodInput);
 });
 
-$(document).ready(function () {});
+$(document).ready(function () {
+	$("#recipeVideos").css("display", "none");
+	$("#videoResult").empty();
+});
 
-function searchVideos(foodInput) {
+function searchVideos(search) {
 	// Construct the API query URL
 	var queryURL =
 		"https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
-		foodInput +
+		search +
 		"-recipe&type=video&key=AIzaSyBa9lY2xF5vOJmaKGWxcJGgtx0w9fByZSk";
 
 	// Make AJAX request to the API
@@ -103,5 +106,37 @@ function searchVideos(foodInput) {
 	}).then(function (response) {
 		// Extract relevant data from the API response
 		console.log(response);
+		displayResults(response.items);
+	});
+}
+
+function displayResults(items) {
+	$("#recipeVideos").css("display", "block");
+	$("#videoResult").empty();
+
+	if (items.length === 0) {
+		$("#videoResult").html("<p>No results found.</p>");
+		return;
+	}
+
+	// Iterate through the search results and display each video title and embed code
+	$.each(items, function (index, item) {
+		var videoTitle = item.snippet.title;
+		videoTitle = videoTitle.toLowerCase().replace(/\b\w/g, function (char) {
+			return char.toUpperCase();
+		});
+		var videoId = item.id.videoId;
+
+		// Create the video embed code
+		var embedCode =
+			'<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
+			videoId +
+			'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
+		// Append the video title and embed code to the results div
+		$("#videoResult")
+			.addClass("col-sm-12 text-center mb-3 pt-3")
+			.append("<h5>" + videoTitle + "</h5>")
+			.append(embedCode);
 	});
 }
