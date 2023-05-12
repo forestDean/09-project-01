@@ -2,12 +2,14 @@
 var recentSearch = JSON.parse(localStorage.getItem("recentSearch")) || [];
 
 $(function () {
+	// Set up autocomplete for the search input
 	$("#searchTerm").autocomplete({
 		source: recentSearch,
 	});
 });
 
 function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
+	// Construct the API query URL
 	var queryURL =
 		"https://api.edamam.com/api/recipes/v2?type=public&q=" +
 		foodInput +
@@ -16,12 +18,13 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 		alergiesInput +
 		mealTypeInput;
 	console.log(queryURL);
-	// Make AJAX request to API
+
+	// Make AJAX request to the API
 	$.ajax({
 		url: queryURL,
 		method: "GET",
 	}).then(function (response) {
-		// Extract relevant data from API response
+		// Extract relevant data from the API response
 		console.log(response);
 		console.log(response.hits);
 		console.log(response.hits[0]);
@@ -76,9 +79,6 @@ $("#searchButton").on("click", function (event) {
 	var dietInput = $("#diet").find(":selected").data("name");
 	var alergiesInput = $("#alergies").find(":selected").data("name");
 	var mealTypeInput = $("#meal-type").find(":selected").data("name");
-	console.log(dietInput);
-	console.log(alergiesInput);
-	console.log(mealTypeInput);
 
 	saveHistory(foodInput);
 
