@@ -110,24 +110,24 @@ form {
   background-color:rgba(50, 104, 145, 0.1);
 }
 
-#searchResult{
+#videoResult{
   display: flex;
   flex-direction: column;
   padding: 2rem;
   align-items: center;
 }
 
-#searchResult div{
+#videoResult div{
   padding:1rem !important;
   margin-bottom: 1rem !important;
   width:max(50%,300px);
 }
 
-#searchResult p{
+#videoResult p{
   color: rgb(84, 86, 98) !important;
 }
 
-#searchResult {
+#videoResult {
 padding-bottom: 20px;
 }
 
