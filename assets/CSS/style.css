@@ -39,6 +39,7 @@ main {
   text-align: center !important;
   margin: 0 auto !important;
   border:1px solid blue;
+  margin-left: 20px !important;
 }
 
 ul.ingredients {
@@ -128,6 +129,11 @@ form {
 
 #searchResult {
 padding-bottom: 20px;
+}
+
+iframe {
+  border: 1px solid red;
+  margin-top: 20px;
 }
 
 footer {
