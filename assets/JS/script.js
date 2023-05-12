@@ -1,7 +1,6 @@
 // Initialize recentSearch array from localStorage
 var recentSearch = JSON.parse(localStorage.getItem("recentSearch")) || [];
 
-// var recentSearch = ["omelete", "roast", "carbonara", "peas"];
 
 $(function () {
 	$("#searchTerm").autocomplete({
@@ -69,11 +68,15 @@ $("#searchButton").on("click", function (event) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 
-	// Get the city name input value and trim any whitespace
+	// Get the food name input value and trim any whitespace and capitalize the first letter
 	var foodInput = $("#searchTerm").val().trim();
 	foodInput = capitalizeFirstLetter(foodInput);
+	var dietInput = 
+	var alergiesInput = 
+	var mealTypeInput = 
+
 	saveHistory(foodInput);
 
-	// Fetch weather data for the entered city name
+	// Fetch recipe data for the entered food name
 	fetchData(foodInput);
 });
