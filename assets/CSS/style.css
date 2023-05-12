@@ -46,9 +46,9 @@ main {
 
 ul.ingredients {
   list-style-type: none;
+  /* list-style: none inside url("../../images/greenCheck-15.png"); */
   padding: 0; 
   margin: 0; 
-  
 }
 
 input::placeholder {
@@ -179,6 +179,12 @@ No media query since this is the default in Bootstrap */
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  ul.ingredients {
+    /* list-style-type: none; */
+    list-style: none inside url("../../images/greenCheck-15.png");
+    padding: 0; 
+    margin: 0; 
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
