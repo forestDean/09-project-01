@@ -40,7 +40,7 @@ $("#searchButton").on("click", function (event) {
 	// }
 
 	// Get the city name input value and trim any whitespace
-	var foodInput = $("#search-input");
+	var foodInput = $("#searchTerm");
 	// console.log(foodInput);
 	// foodInput = capitalizeFirstLetter(foodInput);
 
