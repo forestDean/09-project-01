@@ -12,14 +12,48 @@ body {
 	color: rgb(50, 104, 145);
 }
 
-.container-fluid {
-	margin-top: 20px;
-	margin-bottom: 40px;
-}
 
 .container {
-	width: 800px;
-	margin-top: 20px;
+  width: 1000px;
+  margin-top: 20px;
+  border: 1px solid red;
+ } 
+
+
+ aside {
+  /* background-color: rgba(50, 104, 145, 0.1); */
+  margin-top: 30px;
+ }
+
+ article {
+  padding: 5px;
+  padding-left: ;
+  /* background-color: rgba(50, 104, 145, 0.1); */
+ }
+
+main {
+
+}
+
+#photo {
+  /* color:rgba(50, 104, 145, 0.5); */
+  width: 300px;
+  height: 300px ;
+  text-align: center !important;
+  margin: 0 auto !important;
+  border:1px solid blue;
+  margin-left: 20px !important;
+}
+
+ul.ingredients {
+  list-style-type: none;
+  padding: 0; 
+  margin: 0; 
+  
+}
+
+input::placeholder {
+  color:rgba(50, 104, 145, 0.3) !important;
 }
 
 /* hack to remove default Bootstrap input styling */
@@ -68,35 +102,41 @@ form {
 	background-color: rgba(50, 104, 145, 0.1);
 }
 
-#topArticles {
-	margin-top: 30px;
-	border: 1px solid lightgray;
-	border-radius: 5px;
+
+#recipeVideos {
+  margin-top: 30px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
 }
 
 .articleHead {
 	background-color: rgba(50, 104, 145, 0.1);
 }
 
-#searchResult {
-	display: flex;
-	flex-direction: column;
-	padding: 2rem;
-	align-items: center;
+#videoResult{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  align-items: center;
 }
 
-#searchResult div {
-	padding: 1rem !important;
-	margin-bottom: 1rem !important;
-	width: max(50%, 300px);
+#videoResult div{
+  padding:1rem !important;
+  margin-bottom: 1rem !important;
+  width:max(50%,300px);
 }
 
-#searchResult p {
-	color: rgb(84, 86, 98) !important;
+#videoResult p{
+  color: rgb(84, 86, 98) !important;
 }
 
-#searchResult {
-	padding-bottom: 20px;
+#videoResult {
+padding-bottom: 20px;
+}
+
+iframe {
+  border: 1px solid red;
+  margin-top: 20px;
 }
 
 footer {
