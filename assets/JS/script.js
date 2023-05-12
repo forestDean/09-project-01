@@ -28,10 +28,29 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 		console.log(response);
 		console.log(response.hits);
 		console.log(response.hits[0]);
-		console.log(response.hits[0].recipe.images.regular);
+		console.log(response.hits[0].recipe.images.REGULAR.url);
 		console.log(response.hits[0].recipe.ingredientLines);
 		console.log(response.hits[0].recipe.url);
 		console.log(response.hits[0].recipe.label);
+		var image = response.hits[0].recipe.images.REGULAR.url;
+		ingrLines = response.hits[0].recipe.ingredientLines;
+		displayResults(image, ingrLines);
+	});
+}
+
+function displayResults(image, ingrLines) {
+	$("#photo").attr("src", image);
+
+	// Check if there are no search results
+	if (ingrLines.length === 0) {
+		// $("#videoResult").html("<p>No results found.</p>");
+		return;
+	}
+
+	// Iterate through the ingredient lines and append them to the ul element
+	$.each(ingrLines, function (index, line) {
+		// Append the ingredient line to the ul with class "ingredients"
+		$(".ingredients").append("<li>" + line + "</li>");
 	});
 }
 
@@ -65,8 +84,66 @@ function saveHistory(foodInput) {
 	localStorage.setItem("recentSearch", JSON.stringify(recentSearch));
 }
 
+function searchVideos(search) {
+	// Construct the API query URL
+	var queryURL =
+		"https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
+		search +
+		"-recipe&type=video&key=AIzaSyBa9lY2xF5vOJmaKGWxcJGgtx0w9fByZSk";
+
+	// Make AJAX request to the API
+	$.ajax({
+		url: queryURL,
+		method: "GET",
+	}).then(function (response) {
+		// Extract relevant data from the API response
+		console.log(response);
+		displayYouTubeResults(response.items);
+	});
+}
+
+function displayYouTubeResults(items) {
+	// Show the recipeVideos section
+	$("#recipeVideos").css("display", "block");
+
+	// Clear the videoResult container
+	$("#videoResult").empty();
+
+	// Check if there are no search results
+	if (items.length === 0) {
+		$("#videoResult").html("<p>No results found.</p>");
+		return;
+	}
+
+	// Iterate through the search results and display each video title and embed code
+	$.each(items, function (index, item) {
+		// Get the video title and format it
+		var videoTitle = item.snippet.title;
+		videoTitle = videoTitle.toLowerCase().replace(/\b\w/g, function (char) {
+			return char.toUpperCase();
+		});
+
+		// Get the video ID
+		var videoId = item.id.videoId;
+
+		// Create the video embed code
+		var embedCode =
+			'<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
+			videoId +
+			'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
+		// Append the video title and embed code to the videoResult container
+		$("#videoResult")
+			.addClass("col-sm-12 text-center mb-3 pt-3")
+			.append("<h5>" + videoTitle + "</h5>")
+			.append(embedCode);
+	});
+}
+
 $("#searchButton").on("click", function (event) {
 	event.preventDefault();
+	// Empty the ul element with class "ingredients"
+	$(".ingredients").empty();
 
 	// Function to capitalize the first letter of a string
 	function capitalizeFirstLetter(string) {
@@ -85,58 +162,10 @@ $("#searchButton").on("click", function (event) {
 	// Fetch recipe data for the entered food name
 	fetchData(foodInput, dietInput, alergiesInput, mealTypeInput);
 	searchVideos(foodInput);
+	$("#searchTerm").val("");
 });
 
 $(document).ready(function () {
 	$("#recipeVideos").css("display", "none");
 	$("#videoResult").empty();
 });
-
-function searchVideos(search) {
-	// Construct the API query URL
-	var queryURL =
-		"https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
-		search +
-		"-recipe&type=video&key=AIzaSyBa9lY2xF5vOJmaKGWxcJGgtx0w9fByZSk";
-
-	// Make AJAX request to the API
-	$.ajax({
-		url: queryURL,
-		method: "GET",
-	}).then(function (response) {
-		// Extract relevant data from the API response
-		console.log(response);
-		displayResults(response.items);
-	});
-}
-
-function displayResults(items) {
-	$("#recipeVideos").css("display", "block");
-	$("#videoResult").empty();
-
-	if (items.length === 0) {
-		$("#videoResult").html("<p>No results found.</p>");
-		return;
-	}
-
-	// Iterate through the search results and display each video title and embed code
-	$.each(items, function (index, item) {
-		var videoTitle = item.snippet.title;
-		videoTitle = videoTitle.toLowerCase().replace(/\b\w/g, function (char) {
-			return char.toUpperCase();
-		});
-		var videoId = item.id.videoId;
-
-		// Create the video embed code
-		var embedCode =
-			'<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
-			videoId +
-			'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-
-		// Append the video title and embed code to the results div
-		$("#videoResult")
-			.addClass("col-sm-12 text-center mb-3 pt-3")
-			.append("<h5>" + videoTitle + "</h5>")
-			.append(embedCode);
-	});
-}
