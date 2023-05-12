@@ -90,23 +90,18 @@ $("#searchButton").on("click", function (event) {
 $(document).ready(function () {});
 
 function searchVideos(foodInput) {
-	// YouTube Data API v3 endpoint for search
-	var endpoint = "https://www.googleapis.com/youtube/v3/search";
+	// Construct the API query URL
+	var queryURL =
+		"https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
+		foodInput +
+		"-recipe&type=video&key=AIzaSyBa9lY2xF5vOJmaKGWxcJGgtx0w9fByZSk";
 
-	// API key (replace with your own)
-	var apiKey = "AIzaSyBa9lY2xF5vOJmaKGWxcJGgtx0w9fByZSk";
-
-	// Parameters for the API request
-	var params = {
-		part: "snippet",
-		q: foodInput,
-		type: "video",
-		key: apiKey,
-	};
-
-	// Send the API request
-	$.get(endpoint, params, function (data) {
-		// displayResults(data.items);
-		console.log(data);
+	// Make AJAX request to the API
+	$.ajax({
+		url: queryURL,
+		method: "GET",
+	}).then(function (response) {
+		// Extract relevant data from the API response
+		console.log(response);
 	});
 }
