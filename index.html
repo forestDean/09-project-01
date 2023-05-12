@@ -44,12 +44,12 @@
     <div class="row searchForm">
 
       <div class="col-5">
-        <aside>
-          <img id="photo" src="./images/www_castingimage_com_spandeli_0186.jpg" class="align-self-center" alt="food image" width="300px" height="300px">
+        <aside class="">
+          <img id="photo" src="./images/www_castingimage_com_spandeli_0186.jpg" class="ml-2" alt="food image" width="300px" height="300px">
 
-            <article class="pl-2 mt-3">          
-                <h2>Ingredients</h2>
-                <ul class="ingredients pl">
+            <article class="pl-2 mt-3 ml-3">          
+                <h2>Ingredients</h2>          
+                <ul class="ingredients  mt-3">
                     <li>2 to 3 eggs per omelet</li>
                     <li>2 tablespoons butter per omelet</li>
                     <li>1 tablespoon milk or cream</li>
@@ -60,6 +60,7 @@
                     <li>1 teaspoon chervil, finely chopped</li>
                     <li>1 teaspoon tarragon, finely chopped</li>
                 </ul>
+
             </article>
        </aside>
 
@@ -79,7 +80,7 @@
             
             <select class="form-control custom-select mt-2">
               <label for="01">Search Term:</label>
-              <option selected id="01">Open this select menu</option>
+              <option selected id="01" >Allergies:</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
@@ -87,7 +88,7 @@
 
             <select class="form-control custom-select mt-4">
               <label for="01">Search Term:</label>
-              <option selected id="01">Open this select menu</option>
+              <option selected id="01">Diet:</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
@@ -96,7 +97,7 @@
 
             <div class="row form-group mt-4">
               <div class="col-sm-6"><button id="searchButton" type="button" class="btn btn-lg btn-block">Search</button></div>
-              <div class="col-sm-6"><button id="clearButton" type="button" class="btn btn-lg btn-block">Clear</button></div>
+              <div class="col-sm-6"><button id="clearButton" type="reset" class="btn btn-lg btn-block">Clear</button></div>
             </div>
           </form>
         </main>
@@ -109,11 +110,11 @@
     
     
       <div class="row" id="recipeVideos">
-        <div class="col-sm-12 articleHead px-3 mb-3 py-1"><h3>Recipe Videos</h3></div>
+        <div class="col-sm-12 articleHead text-center mb-3 py-1"><h3>Recipe Videos</h3></div>
         <div class="col-sm-12" id="searchResult">
 
           VIDEO SEARCH RESULTS GO HERE   >>
-
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/GK7GObLUCWU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
       </div>
