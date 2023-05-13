@@ -161,7 +161,7 @@ function searchVideos(search) {
 	var queryURL =
 		"https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
 		search +
-		"-recipe&type=video&key=AIzaSyCJ8OYo2IstOyF4cTPB8RdifVPOX7kSLiU";
+		"-recipe&type=video&key=AIzaSyCQoBbcjBjOyOqHyEILxJZ_74-lCNt6_X4";
 
 	// Make AJAX request to the API
 	$.ajax({
