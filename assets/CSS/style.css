@@ -166,8 +166,6 @@ option:focus {
    box-shadow: none;
    outline: solid 1px #fff !important;
    outline-offset: -5px !important;
-   box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
-   filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
  }
 
 /* ========================== Recipe Directions ==========================  */
