@@ -94,8 +94,6 @@ function displayResults(image, ingrLines, recipelabel, data) {
 	});
 
 	$("#maincontainer")
-		.addClass("text-center")
-		.css("font-size", "22px")
 		.append(
 			'<a href="' +
 				data[0].recipe.url +
@@ -103,7 +101,6 @@ function displayResults(image, ingrLines, recipelabel, data) {
 		);
 
 	$("#maincontainer")
-		.addClass("text-center pt-2")
 		.append("<h5>Use the buttons to check for other recipes</h5>");
 
 	var buttonsContainer = $("<div>").addClass(
