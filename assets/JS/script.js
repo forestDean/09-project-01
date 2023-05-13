@@ -28,11 +28,107 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 		console.log(response);
 		console.log(response.hits);
 		console.log(response.hits[0]);
-		console.log(response.hits[0].recipe.images.regular);
+		console.log(response.hits[0].recipe.images.REGULAR.url);
 		console.log(response.hits[0].recipe.ingredientLines);
 		console.log(response.hits[0].recipe.url);
 		console.log(response.hits[0].recipe.label);
+		var data = response.hits;
+		var image = response.hits[0].recipe.images.REGULAR;
+		var ingrLines = response.hits[0].recipe.ingredientLines;
+		var recipelabel = response.hits[0].recipe;
+		displayResults(image, ingrLines, recipelabel, data);
 	});
+}
+
+function iterateResults(i, data) {
+	var image = data[i].recipe.images.REGULAR;
+	var ingrLines = data[i].recipe.ingredientLines;
+	var recipelabel = data[i].recipe;
+
+	$("#photo").attr("src", image.url);
+	$("#recipeName").text(recipelabel.label);
+
+	// Clear previous ingredient lines
+	$(".ingredients").empty();
+
+	$.each(ingrLines, function (index, line) {
+		// Append the ingredient line to the ul with class "ingredients"
+		$(".ingredients").append("<li>" + line + "</li>");
+	});
+
+	$("#maincontainer")
+		.addClass("text-center")
+		.css("font-size", "22px")
+		.append(
+			'<a href="' +
+				data[i].recipe.url +
+				'" target="_blank">Click Here and follow the Directions</a>'
+		);
+
+	var buttonsContainer = $("<div>")
+		.addClass("row")
+		.css("background-color", "#2d3e50");
+
+	$("button>").addClass("text-white").text("<").appendTo(buttonsContainer);
+	$("h6>").addClass("text-white").text(i).appendTo(buttonsContainer);
+	$("h6>").addClass("text-white").text("/").appendTo(buttonsContainer);
+	$("h6>")
+		.addClass("text-white")
+		.text(data.hits.length)
+		.appendTo(buttonsContainer);
+	$("button>").addClass("text-white").text(">").appendTo(buttonsContainer);
+}
+
+function displayResults(image, ingrLines, recipelabel, data) {
+	$("#photo").attr("src", image.url);
+	$("#recipeName").text(recipelabel.label);
+
+	// Check if there are no search results
+	if (ingrLines.length === 0) {
+		// $("#videoResult").html("<p>No results found.</p>");
+		return;
+	}
+
+	// Iterate through the ingredient lines and append them to the ul element
+	$.each(ingrLines, function (index, line) {
+		// Append the ingredient line to the ul with class "ingredients"
+		$(".ingredients").append("<li>" + line + "</li>");
+	});
+
+	$("#maincontainer")
+		.addClass("text-center")
+		.css("font-size", "22px")
+		.append(
+			'<a href="' +
+				data[0].recipe.url +
+				'" target="_blank">Click Here and follow the Recipe Directions</a>'
+		);
+
+	$("#maincontainer")
+		.addClass("text-center pt-2")
+		.append("<h5>Use the buttons to check for other recipes</h5>");
+
+	var buttonsContainer = $("<div>").addClass(
+		"row d-flex justify-content-around align-items-center"
+	);
+	// .css("background-color", "#2d3e50");
+
+	$("<button>")
+		.addClass("text-dark col-2 btn btn-lg btn-block")
+		.text("<")
+		.appendTo(buttonsContainer);
+
+	$("<h6>")
+		.addClass("text-dark pt-3 col-3")
+		.text("1 / " + data.length)
+		.appendTo(buttonsContainer);
+
+	$("<button>")
+		.addClass("text-dark col-2 btn btn-lg btn-block")
+		.text(">")
+		.appendTo(buttonsContainer);
+
+	$("#maincontainer").append(buttonsContainer);
 }
 
 function saveHistory(foodInput) {
@@ -65,8 +161,66 @@ function saveHistory(foodInput) {
 	localStorage.setItem("recentSearch", JSON.stringify(recentSearch));
 }
 
+function searchVideos(search) {
+	// Construct the API query URL
+	var queryURL =
+		"https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
+		search +
+		"-recipe&type=video&key=AIzaSyCJ8OYo2IstOyF4cTPB8RdifVPOX7kSLiU";
+
+	// Make AJAX request to the API
+	$.ajax({
+		url: queryURL,
+		method: "GET",
+	}).then(function (response) {
+		// Extract relevant data from the API response
+		console.log(response);
+		displayYouTubeResults(response.items);
+	});
+}
+
+function displayYouTubeResults(items) {
+	// Show the recipeVideos section
+	$("#recipeVideos").css("display", "block");
+
+	// Clear the videoResult container
+	$("#videoResult").empty();
+
+	// Check if there are no search results
+	if (items.length === 0) {
+		$("#videoResult").html("<p>No results found.</p>");
+		return;
+	}
+
+	// Iterate through the search results and display each video title and embed code
+	$.each(items, function (index, item) {
+		// Get the video title and format it
+		var videoTitle = item.snippet.title;
+		videoTitle = videoTitle.toLowerCase().replace(/\b\w/g, function (char) {
+			return char.toUpperCase();
+		});
+
+		// Get the video ID
+		var videoId = item.id.videoId;
+
+		// Create the video embed code
+		var embedCode =
+			'<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
+			videoId +
+			'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
+		// Append the video title and embed code to the videoResult container
+		$("#videoResult")
+			.addClass("col-sm-12 text-center mb-3 pt-3")
+			.append("<h5>" + videoTitle + "</h5>")
+			.append(embedCode);
+	});
+}
+
 $("#searchButton").on("click", function (event) {
 	event.preventDefault();
+	// Empty the ul element with class "ingredients"
+	$(".ingredients").empty();
 
 	// Function to capitalize the first letter of a string
 	function capitalizeFirstLetter(string) {
@@ -85,23 +239,12 @@ $("#searchButton").on("click", function (event) {
 	// Fetch recipe data for the entered food name
 	fetchData(foodInput, dietInput, alergiesInput, mealTypeInput);
 	searchVideos(foodInput);
+	$("#searchTerm").val("");
 });
 
-$(document).ready(function () {});
-
-function searchVideos(foodInput) {
-	// Construct the API query URL
-	var queryURL =
-		"https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
-		foodInput +
-		"-recipe&type=video&key=AIzaSyBa9lY2xF5vOJmaKGWxcJGgtx0w9fByZSk";
-
-	// Make AJAX request to the API
-	$.ajax({
-		url: queryURL,
-		method: "GET",
-	}).then(function (response) {
-		// Extract relevant data from the API response
-		console.log(response);
-	});
-}
+$(document).ready(function () {
+	// Set a cookie with SameSite attribute
+	document.cookie = "cookieName=cookieValue; SameSite=Lax";
+	$("#recipeVideos").css("display", "none");
+	$("#videoResult").empty();
+});

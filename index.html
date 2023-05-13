@@ -15,28 +15,25 @@
     
 
   <link rel="stylesheet" href="./assets/CSS/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" 
-  integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" 
-  integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap.css" >
+  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-grid.css"> 
+  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-grid.min.css"> 
+  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-reboot.css" >
+  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-reboot.min.css" >
   <link rel="stylesheet" href="./assets/CSS/style.css" />
 
   <title>CLook</title>
+
 </head>
 
 <body>
-
+  
   <div class="container">
-
+    
     <div id="header" class="row header align-items-center px-2 py-3">
-        <div class="col-sm-2">
-        </div>
+      <div class="col-sm-2">
+      </div>
 
         <div class="col-sm-8 py-auto">
           <h1 id="one">CLook</h1>
@@ -44,35 +41,36 @@
 
         <div class="col-sm-2">
         </div> 
-    </div> 
-
-    <div class="row">
-
-      <div class="col-md-12 col-lg-5 order-2 order-lg-1">
-        <aside class="text-center text-lg-left ml-2">
+      </div> 
+      
+      <div class="row">
+        
+        <div class="col-md-12 col-lg-5 order-2 order-lg-1">
+          <aside class="text-center text-lg-left ml-2">
+          <h3 class="text-center" id="recipeName"></h3>
           <img id="photo" src="./images/www_castingimage_com_spandeli_0186.jpg" class="ml-md-3" alt="recipe image" width="300px" height="300px">
-
-            <article class="text-lg-left pl-2 mt-3 ml-4">          
-                <h2 class="ml-lg-4">Ingredients</h2>          
-                <ul class="ingredients mt-3">
-                    <li>2 to 3 eggs per omelet</li>
-                    <li>2 tablespoons butter per omelet</li>
-                    <li>1 tablespoon milk or cream</li>
-                    <li>Salt and pepper</li>
-                    <li>1 tablespoon clarified butter</li>
-                    <li>1 teaspoon chives, finely chopped</li>
-                    <li>1 teaspoon flat leaf parsley, finely chopped</li>
-                    <li>1 teaspoon chervil, finely chopped</li>
-                    <li>1 teaspoon tarragon, finely chopped</li>
+          
+          <article class="text-lg-left pl-2 mt-3 ml-4">          
+            <h2 class="ml-lg-4">Ingredients</h2>          
+            <ul class="ingredients mt-3" id="ulIngredients">
+              <li class="ingredients">2 to 3 eggs per omelet</li>
+                    <li class="ingredients">2 tablespoons butter per omelet</li>
+                    <li class="ingredients">1 tablespoon milk or cream</li>
+                    <li class="ingredients">Salt and pepper</li>
+                    <li class="ingredients">1 tablespoon clarified butter</li>
+                    <li class="ingredients">1 teaspoon chives, finely chopped</li>
+                    <li class="ingredients">1 teaspoon flat leaf parsley, finely chopped</li>
+                    <li class="ingredients">1 teaspoon chervil, finely chopped</li>
+                    <li class="ingredients">1 teaspoon tarragon, finely chopped</li>
                 </ul>
-            </article>
+              </article>
        </aside>
-
+       
       </div>
-  
-
-      <div class="col-md-12 col-lg-7 order-1 order-lg-2 pl-3">
-        <main> 
+      
+      
+      <main class="col-md-12 col-lg-7 order-1 order-lg-2 pl-3">
+        <div id="maincontainer"> 
           <form class="mr-4">
             <div class="formhead pl-4 mb-3 py-1">
               <legend>Recipe Selection:</legend>
@@ -82,6 +80,7 @@
               <input type="text" class="form-control" id="searchTerm" placeholder="Lasagne">
             </div>
             
+
           <div class="form-group">            
             <select class="form-control custom-select mt-1" id="diet">
               <option selected data-name="">Diet: (optional)</option>
@@ -93,7 +92,7 @@
               <option value="6" data-name="&diet=low-sodium">Low-sodium</option>
             </select>
           </div>
-
+          
           <div class="selectWrapper form-group">  
             <select class="form-control custom-select mt-1" id="alergies">
               <option selected data-name="">Allergies: (optional)</option>
@@ -114,7 +113,7 @@
               <option value="16" data-name="&health=vegetarian">Vegetarian</option>
             </select>
           </div>
-
+          
           <div class="selectWrapper form-group">  
             <select class="form-control custom-select mt-1" id="meal-type">
               <option selected data-name="">Meal type: (optional)</option>
@@ -123,50 +122,54 @@
               <option value="3" data-name="&mealType=dinner">Dinner</option>
             </select>
           </div>
-
-
-            <div class="row form-group mt-4">
+          
+          
+          <div class="row form-group mt-4">
               <div class="col-12"><button id="searchButton" type="button" class="btn btn-lg btn-block mb-4">Search</button></div>
             </div>
           </form>
-        </main>
-      </div>
-
-
-
-  </div>
-
-    
-    
-      <div class="row" id="recipeVideos">
-        <div class="col-sm-12 articleHead text-center mb-3 py-2"><h3>Recipe Videos</h3></div>
-        <div class="col-sm-12" id="videoResult">
-
-          VIDEO SEARCH RESULTS GO HERE   >>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/GK7GObLUCWU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-
-      </div>
-    </div>
-
-    <!-- //BACK-TO-TOP -->
-    <div class="row w-75 mx-auto mt-3 pb-2 d-block d-md-none">
-      <a class="col-12 btn btn-dark btn-lg btn-block py-5 " href="#header" role="button" id="backtoTop">Back to Top</a>
-    </div>
-
-
-
-
-      <footer>
-        <small class="credits">Designed by the codeBreakers<br><span id="creditLinks"><a href="https://github.com/fot28">Fotios Polymenakos</a> &amp <a href="https://github.com/forestdean">John Walton</a></span></small>
-      </footer>
-
-    </div> 
-
-  <!-- e/o container -->
+      </main>
+      
+      
+      
   </div>
+  
+  
+  
+  <div class="row" id="recipeVideos">
+    <div class="col-sm-12 articleHead text-center mb-3 py-2"><h3>Alternative Recipe Videos</h3></div>
+    <div class="col-sm-12" id="videoResult">
+      
+    </div>
+    
+  </div>
+</div>
+
+<!-- //BACK-TO-TOP -->
+<div class="row w-75 mx-auto mt-3 pb-2 d-block d-md-none">
+  <a class="col-12 btn btn-dark btn-lg btn-block py-5 " href="#header" role="button" id="backtoTop">Back to Top</a>
+</div>
 
 
+
+
+<footer>
+  <small class="credits">Designed by the codeBreakers<br><span id="creditLinks"><a href="https://github.com/fot28">Fotios Polymenakos</a> &amp <a href="https://github.com/forestdean">John Walton</a></span></small>
+</footer>
+
+</div> 
+
+<!-- e/o container -->
+</div>
+
+
+<script src="./assets/JS/jquery-3.6.0.min.js"></script>
+<script src="./assets/JS/jquery-ui.js"></script>
+<script src="./assets/bootstrap-4.6.2-dist/js/bootstrap.js" ></script>
+<script src="./assets/bootstrap-4.6.2-dist/js/bootstrap.min.js" ></script>
+<script src="./assets/bootstrap-4.6.2-dist/js/bootstrap.bundle.js" ></script>
+<script src="./assets/bootstrap-4.6.2-dist/js/bootstrap.bundle.min.js" ></script>  
 <script src="./assets/JS/script.js"></script>
 
 </body>
