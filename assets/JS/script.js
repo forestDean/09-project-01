@@ -57,8 +57,6 @@ function iterateResults(i, data) {
 	});
 
 	$("#maincontainer")
-		.addClass("text-center")
-		.css("font-size", "22px")
 		.append(
 			'<a href="' +
 				data[i].recipe.url +
