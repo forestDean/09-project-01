@@ -114,17 +114,17 @@ function displayResults(image, ingrLines, recipelabel, data) {
 	// .css("background-color", "#2d3e50");
 
 	$("<button>")
-		.addClass("text-dark col-2 btn btn-lg btn-block")
+		.addClass("col-2 btn btn-lg btn-block")
 		.text("<")
 		.appendTo(buttonsContainer);
 
 	$("<h6>")
-		.addClass("text-dark pt-3 col-3")
+		.addClass("pt-3 col-3")
 		.text("1 / " + data.length)
 		.appendTo(buttonsContainer);
 
 	$("<button>")
-		.addClass("text-dark col-2 btn btn-lg btn-block")
+		.addClass("col-2 btn btn-lg btn-block")
 		.text(">")
 		.appendTo(buttonsContainer);
 
