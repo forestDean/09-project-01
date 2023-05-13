@@ -37,6 +37,7 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 		var ingrLines = response.hits[0].recipe.ingredientLines;
 		var recipelabel = response.hits[0].recipe;
 		displayResults(image, ingrLines, recipelabel, data);
+		ret;
 	});
 }
 
@@ -115,6 +116,7 @@ function displayResults(image, ingrLines, recipelabel, data) {
 
 	$("<button>")
 		.addClass("text-dark col-2 btn btn-lg btn-block")
+		.attr("id", "back")
 		.text("<")
 		.appendTo(buttonsContainer);
 
@@ -125,6 +127,7 @@ function displayResults(image, ingrLines, recipelabel, data) {
 
 	$("<button>")
 		.addClass("text-dark col-2 btn btn-lg btn-block")
+		.attr("id", "forth")
 		.text(">")
 		.appendTo(buttonsContainer);
 
@@ -240,6 +243,16 @@ $("#searchButton").on("click", function (event) {
 	fetchData(foodInput, dietInput, alergiesInput, mealTypeInput);
 	searchVideos(foodInput);
 	$("#searchTerm").val("");
+});
+
+$("#forth").on("click", function () {
+	// event.preventDefault();
+	// Empty the ul element with class "ingredients"
+	$(".ingredients").empty();
+	$("#videoResult").empty();
+	i++;
+	// Function to capitalize the first letter of a string
+	iterateResults(i);
 });
 
 $(document).ready(function () {
