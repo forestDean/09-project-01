@@ -211,7 +211,7 @@ function displayYouTubeResults(items) {
 
 		// Append the video title and embed code to the videoResult container
 		$("#videoResult")
-			.addClass("col-sm-12 text-center mb-3 pt-3")
+			.addClass("col-12 text-center mb-3 pt-3")
 			.append("<h5>" + videoTitle + "</h5>")
 			.append(embedCode);
 	});

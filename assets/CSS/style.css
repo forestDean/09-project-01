@@ -3,9 +3,8 @@
 
 :root {
   --greekBlue:rgb(0, 20, 137);
+  --lightGrey:rgba(128, 128, 128, 0.5);
 } 
-
-
 
 * {
 	box-sizing: border-box;
@@ -24,7 +23,6 @@ body {
  } 
      
  .header {
-	background-color: rgb(50, 104, 145);
 	background-color: var(--greekBlue);
   outline: solid 2px #fff;
   outline-offset: -5px;
@@ -71,8 +69,10 @@ h1 {
 #photo {
   width: 300px;
   height: 300px ;
-  border: 1px solid lightgray;
+  border: none;
 	border-radius: 15px 0 0 ;
+  box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+  filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
 }
 
 #ulIngredients {
@@ -93,6 +93,8 @@ form {
 	margin: 30px 0 20px;
 	border: 1px solid lightgray;
 	border-radius: 0 15px 0 0;
+  box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+  filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
 }
 
 .formhead {
@@ -141,12 +143,22 @@ option {
 }
 
 .btn {
-	border: 1px solid lightgray;
-	color: var(--greekBlue);
+  outline: solid 1px #fff;
+  outline-offset: -5px;
+	color: white;
+  font-family: "Lobster", "Georgia", serif;
 	background-color: rgba(50, 104, 145, .2);
   background-color: rgba(255, 228, 196, 0.5);
+  background-color: var(--greekBlue);
 }
-/* =============================== Recipe Directions ===============================  */
+
+button:hover {
+  color: white !important;
+  font-family: "Lobster", "Georgia", serif;
+  box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+  filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
+}
+/* ========================== Recipe Directions ==========================  */
 
 
 
@@ -186,10 +198,12 @@ option {
 #videoResult {
 padding-bottom: 20px;
 }
+h5 {
+  margin-top: 30px;
+}
 
 iframe {
-  border: 1px solid red;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .btn-modal {
@@ -204,12 +218,13 @@ footer {
 }
 
 footer a {
-	color: rgb(50, 104, 145);
+	color: var(--greekBlue);
 	font-weight: bold;
 }
 
 .credits {
 	font-size: 16px;
+  line-height: 30px;
 }
 
 #creditLinks {
