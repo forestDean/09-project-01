@@ -106,7 +106,7 @@ legend {
 .form-control{
   background-color: rgba(50, 104, 145, 0.05);
   height: 50px; 
-  color: rgba(50, 104, 145); /* dropdown legend */
+  color: var(--greekBlue); /* dropdown legend */
   /* dropdown legend */
   margin-top: 30px;
   /* disable bootstrap defaults */
