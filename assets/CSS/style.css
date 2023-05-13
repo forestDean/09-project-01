@@ -26,19 +26,10 @@ body {
 	background-color: var(--greekBlue);
   outline: solid 2px #fff;
   outline-offset: -5px;
+  box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+  filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
 }
 
-.stripe {
-  /* background: repeating-linear-gradient(
-  90deg,
-  var(--greekBlue) 0,
-  var(--greekBlue) 20px,
-  #fff 20px,
-  #fff 40px
-); */
-background-color: var(--greekBlue) !important; 
-background-color: white; 
-}
 
 h1 {
 	text-align: center;
@@ -118,6 +109,14 @@ legend {
   color: rgba(50, 104, 145); /* dropdown legend */
   /* dropdown legend */
   margin-top: 30px;
+  /* disable bootstrap defaults */
+  box-shadow: none!important;
+  outline: -webkit-focus-ring-color auto 0px!important;
+  border-color: none;
+}
+
+.form-control:focus {
+  border-color: var(--greekBlue)
 }
 
 input::placeholder {
@@ -133,6 +132,10 @@ input:-webkit-autofill:focus {
 option {
   color: var(--greekBlue);
 }
+option:focus {
+  color: var(--greekBlue);
+}
+
 
 /* option:checked, option:hover {
   background-color: red !important;   
@@ -147,7 +150,7 @@ option {
   outline-offset: -5px;
 	color: white;
   font-family: "Lobster", "Georgia", serif;
-  background-color: var(--greekBlue);
+  background-color: var(--greekBlue) !important;
   height: 100px;
   font-size: 40px;
 }
