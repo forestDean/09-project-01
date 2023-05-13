@@ -163,18 +163,9 @@ option:focus {
 }
 
 .btn:focus {
-  color: red !important;
-   /* disable bootstrap defaults */
-   /* box-shadow: none!important;
-   outline: -webkit-focus-ring-color auto 0px!important;
-   border-color: none; */
-   /* outline: solid 1px #fff;
-   outline-offset: -5px; */
-   /* border: none;  */
-   /* outline: none; */
    box-shadow: none;
-   outline: inherit;
-   outline-offset:inherit;
+   outline: solid 1px #fff !important;
+   outline-offset: -5px !important;
  }
 
 /* ========================== Recipe Directions ==========================  */
