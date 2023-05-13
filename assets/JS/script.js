@@ -32,14 +32,27 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 		console.log(response.hits[0].recipe.ingredientLines);
 		console.log(response.hits[0].recipe.url);
 		console.log(response.hits[0].recipe.label);
-		var image = response.hits[0].recipe.images.REGULAR.url;
+		image = response.hits[0].recipe.images.REGULAR;
 		ingrLines = response.hits[0].recipe.ingredientLines;
-		displayResults(image, ingrLines);
+		recipelabel = response.hits[0].recipe;
+		displayResults(image, ingrLines, recipelabel);
 	});
 }
 
-function displayResults(image, ingrLines) {
-	$("#photo").attr("src", image);
+function iterateResults(i, image, ingrLines, recipelabel) {
+	for (let i = 0; i < recipelabel.length; i++) {
+		$("#photo").attr("src", image[0].url);
+		$("#recipeName").text(recipelabel[i].label);
+	}
+	$.each(ingrLines, function (index, line) {
+		// Append the ingredient line to the ul with class "ingredients"
+		$(".ingredients").append("<li>" + line + "</li>");
+	});
+}
+
+function displayResults(image, ingrLines, recipelabel) {
+	$("#photo").attr("src", image.url);
+	$("#recipeName").text(recipelabel.label);
 
 	// Check if there are no search results
 	if (ingrLines.length === 0) {
@@ -166,6 +179,8 @@ $("#searchButton").on("click", function (event) {
 });
 
 $(document).ready(function () {
+	// Set a cookie with SameSite attribute
+	document.cookie = "cookieName=cookieValue; SameSite=Lax";
 	$("#recipeVideos").css("display", "none");
 	$("#videoResult").empty();
 });
