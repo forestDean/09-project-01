@@ -1,9 +1,10 @@
-/* :root {
-} */
-
-
 /* request to Google Fonts API */
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Lobster&family=Phudu:wght@300&display=swap');
+
+:root {
+  --greekBlue:rgb(0, 20, 137);
+} 
+
 
 
 * {
@@ -12,25 +13,41 @@
 
 body {
 	font-family: "Lato", sans-serif;
-	color: rgb(50, 104, 145);
+	color: var(--greekBlue);
 }
 
 
 .container {
-  width: 1000px;
+  width: 980px;
   margin-top: 20px;
   border: 1px solid rgba(128, 128, 128, 0.1)
  } 
      
  .header {
 	background-color: rgb(50, 104, 145);
+	background-color: var(--greekBlue);
+  outline: solid 2px #fff;
+  outline-offset: -5px;
+}
+
+.stripe {
+  /* background: repeating-linear-gradient(
+  90deg,
+  var(--greekBlue) 0,
+  var(--greekBlue) 20px,
+  #fff 20px,
+  #fff 40px
+); */
+background-color: var(--greekBlue) !important; 
+background-color: white; 
 }
 
 h1 {
 	text-align: center;
 	color: white;
-  font-size: 60px;
+  font-size: 70px;
 	font-family: "Lobster", "Georgia", serif;
+  /* -webkit-text-stroke: 2px var(--greekBlue); */
 }
 
 
@@ -58,11 +75,17 @@ h1 {
 	border-radius: 15px 0 0 ;
 }
 
-ul.ingredients {
+#ulIngredients {
   list-style-type: none;
   padding: 0; 
   margin: 0; 
 }
+
+#ulIngredients li {
+  margin-bottom: 10px;
+}
+
+
 
 
 /* ======================== Recipe Selection FORM ========================  */
@@ -80,7 +103,7 @@ form {
 }
 
 legend {
-	color: rgb(50, 104, 145);
+	color: var(--greekBlue);
 }
 
 .form-group {
@@ -106,7 +129,7 @@ input:-webkit-autofill:focus {
 }
 
 option {
-  color:rgba(50, 104, 145); 
+  color: var(--greekBlue);
 }
 
 /* option:checked, option:hover {
@@ -119,7 +142,7 @@ option {
 
 .btn {
 	border: 1px solid lightgray;
-	color: rgb(50, 104, 145);
+	color: var(--greekBlue);
 	background-color: rgba(50, 104, 145, .2);
   background-color: rgba(255, 228, 196, 0.5);
 }
@@ -210,7 +233,7 @@ No media query since this is the default in Bootstrap */
 @media (min-width: 992px) {
   ul.ingredients {
     /* list-style-type: none; */
-    list-style: none inside url("../../images/greenCheck-15.png");
+    list-style: none outside url("../../images/greenCheck-15.png");
     padding: 0; 
     margin: 0; 
   }
