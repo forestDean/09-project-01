@@ -147,9 +147,9 @@ option {
   outline-offset: -5px;
 	color: white;
   font-family: "Lobster", "Georgia", serif;
-	background-color: rgba(50, 104, 145, .2);
-  background-color: rgba(255, 228, 196, 0.5);
   background-color: var(--greekBlue);
+  height: 100px;
+  font-size: 40px;
 }
 
 button:hover {
@@ -211,6 +211,10 @@ iframe {
 }
 
 /* ================================ footer ================================ */
+#backtoTop {
+  font-size: 40px;
+  line-height: 80px;
+}
 
 footer {
 	margin: 30px 0 40px;
@@ -251,6 +255,12 @@ No media query since this is the default in Bootstrap */
     list-style: none outside url("../../images/greenCheck-15.png");
     padding: 0; 
     margin: 0; 
+  }
+
+  .btn {
+
+    height: 60px;
+    font-size: 20px;
   }
 }
 
