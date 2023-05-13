@@ -32,25 +32,54 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 		console.log(response.hits[0].recipe.ingredientLines);
 		console.log(response.hits[0].recipe.url);
 		console.log(response.hits[0].recipe.label);
-		image = response.hits[0].recipe.images.REGULAR;
-		ingrLines = response.hits[0].recipe.ingredientLines;
-		recipelabel = response.hits[0].recipe;
-		displayResults(image, ingrLines, recipelabel);
+		var data = response.hits;
+		var image = response.hits[0].recipe.images.REGULAR;
+		var ingrLines = response.hits[0].recipe.ingredientLines;
+		var recipelabel = response.hits[0].recipe;
+		displayResults(image, ingrLines, recipelabel, data);
 	});
 }
 
-function iterateResults(i, image, ingrLines, recipelabel) {
-	for (let i = 0; i < recipelabel.length; i++) {
-		$("#photo").attr("src", image[0].url);
-		$("#recipeName").text(recipelabel[i].label);
-	}
+function iterateResults(i, data) {
+	var image = data[i].recipe.images.REGULAR;
+	var ingrLines = data[i].recipe.ingredientLines;
+	var recipelabel = data[i].recipe;
+
+	$("#photo").attr("src", image.url);
+	$("#recipeName").text(recipelabel.label);
+
+	// Clear previous ingredient lines
+	$(".ingredients").empty();
+
 	$.each(ingrLines, function (index, line) {
 		// Append the ingredient line to the ul with class "ingredients"
 		$(".ingredients").append("<li>" + line + "</li>");
 	});
+
+	$("#maincontainer")
+		.addClass("text-center")
+		.css("font-size", "22px")
+		.append(
+			'<a href="' +
+				data[i].recipe.url +
+				'" target="_blank">Click Here and follow the Directions</a>'
+		);
+
+	var buttonsContainer = $("<div>")
+		.addClass("row")
+		.css("background-color", "#2d3e50");
+
+	$("button>").addClass("text-white").text("<").appendTo(buttonsContainer);
+	$("h6>").addClass("text-white").text(i).appendTo(buttonsContainer);
+	$("h6>").addClass("text-white").text("/").appendTo(buttonsContainer);
+	$("h6>")
+		.addClass("text-white")
+		.text(data.hits.length)
+		.appendTo(buttonsContainer);
+	$("button>").addClass("text-white").text(">").appendTo(buttonsContainer);
 }
 
-function displayResults(image, ingrLines, recipelabel) {
+function displayResults(image, ingrLines, recipelabel, data) {
 	$("#photo").attr("src", image.url);
 	$("#recipeName").text(recipelabel.label);
 
@@ -65,6 +94,41 @@ function displayResults(image, ingrLines, recipelabel) {
 		// Append the ingredient line to the ul with class "ingredients"
 		$(".ingredients").append("<li>" + line + "</li>");
 	});
+
+	$("#maincontainer")
+		.addClass("text-center")
+		.css("font-size", "22px")
+		.append(
+			'<a href="' +
+				data[0].recipe.url +
+				'" target="_blank">Click Here and follow the Recipe Directions</a>'
+		);
+
+	$("#maincontainer")
+		.addClass("text-center pt-2")
+		.append("<h5>Use the buttons to check for other recipes</h5>");
+
+	var buttonsContainer = $("<div>").addClass(
+		"row d-flex justify-content-around align-items-center"
+	);
+	// .css("background-color", "#2d3e50");
+
+	$("<button>")
+		.addClass("text-dark col-2 btn btn-lg btn-block")
+		.text("<")
+		.appendTo(buttonsContainer);
+
+	$("<h6>")
+		.addClass("text-dark pt-3 col-3")
+		.text("1 / " + data.length)
+		.appendTo(buttonsContainer);
+
+	$("<button>")
+		.addClass("text-dark col-2 btn btn-lg btn-block")
+		.text(">")
+		.appendTo(buttonsContainer);
+
+	$("#maincontainer").append(buttonsContainer);
 }
 
 function saveHistory(foodInput) {
@@ -102,7 +166,7 @@ function searchVideos(search) {
 	var queryURL =
 		"https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
 		search +
-		"-recipe&type=video&key=AIzaSyBa9lY2xF5vOJmaKGWxcJGgtx0w9fByZSk";
+		"-recipe&type=video&key=AIzaSyCJ8OYo2IstOyF4cTPB8RdifVPOX7kSLiU";
 
 	// Make AJAX request to the API
 	$.ajax({
