@@ -1,7 +1,10 @@
 /* :root {
 } */
 
-@import url("https://fonts.googleapis.com/css2?family=Lato&family=Solway&display=fallback");
+
+/* request to Google Fonts API */
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lobster&family=Phudu:wght@300&display=swap');
+
 
 * {
 	box-sizing: border-box;
@@ -19,6 +22,17 @@ body {
   border: 1px solid rgba(128, 128, 128, 0.1)
  } 
      
+ .header {
+	background-color: rgb(50, 104, 145);
+}
+
+h1 {
+	text-align: center;
+	color: white;
+  font-size: 60px;
+	font-family: "Lobster", "Georgia", serif;
+}
+
 
  aside {
   /* background-color: rgba(50, 104, 145, 0.1); */
@@ -48,15 +62,6 @@ ul.ingredients {
 }
 
 
-.header {
-	background-color: rgb(50, 104, 145);
-}
-
-h1 {
-	text-align: center;
-	color: white;
-	font-family: Georgia, "Times New Roman", Times, serif;
-}
 
 legend {
 	color: rgb(50, 104, 145);
