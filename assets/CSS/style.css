@@ -155,12 +155,28 @@ option:focus {
   font-size: 40px;
 }
 
-button:hover {
+.btn:hover {
   color: white !important;
   font-family: "Lobster", "Georgia", serif;
   box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
   filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
 }
+
+.btn:focus {
+  color: red !important;
+   /* disable bootstrap defaults */
+   /* box-shadow: none!important;
+   outline: -webkit-focus-ring-color auto 0px!important;
+   border-color: none; */
+   /* outline: solid 1px #fff;
+   outline-offset: -5px; */
+   /* border: none;  */
+   /* outline: none; */
+   box-shadow: none;
+   outline: inherit;
+   outline-offset:inherit;
+ }
+
 /* ========================== Recipe Directions ==========================  */
 
 
