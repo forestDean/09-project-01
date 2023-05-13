@@ -1,7 +1,10 @@
-/* :root {
-} */
+/* request to Google Fonts API */
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lobster&family=Phudu:wght@300&display=swap');
 
-@import url("https://fonts.googleapis.com/css2?family=Lato&family=Solway&display=fallback");
+:root {
+  --greekBlue:rgb(0, 20, 137);
+  --lightGrey:rgba(128, 128, 128, 0.5);
+} 
 
 * {
 	box-sizing: border-box;
@@ -9,17 +12,38 @@
 
 body {
 	font-family: "Lato", sans-serif;
-	color: rgb(50, 104, 145);
+	color: var(--greekBlue);
 }
 
 
 .container {
-  width: 1000px;
+  width: 980px;
   margin-top: 20px;
   border: 1px solid rgba(128, 128, 128, 0.1)
  } 
      
+ .header {
+	background-color: var(--greekBlue);
+  outline: solid 2px #fff;
+  outline-offset: -5px;
+  box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+  filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
+}
 
+
+h1 {
+	text-align: center;
+	color: white;
+  font-size: 70px;
+	font-family: "Lobster", "Georgia", serif;
+  /* -webkit-text-stroke: 2px var(--greekBlue); */
+}
+
+
+/* main {
+} */
+
+/* ==================== Ingredients - photo & text ====================  */
  aside {
   /* background-color: rgba(50, 104, 145, 0.1); */
   margin-top: 30px;
@@ -31,44 +55,37 @@ body {
   /* background-color: rgba(50, 104, 145, 0.1); */
  }
 
-/* main {
-} */
+ /* <h3 class="text-center" id="recipeName">Spinach lasagne</h3> */
 
 #photo {
   width: 300px;
   height: 300px ;
-  border: 1px solid lightgray;
+  border: none;
 	border-radius: 15px 0 0 ;
+  box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+  filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
 }
 
-ul.ingredients {
+#ulIngredients {
   list-style-type: none;
   padding: 0; 
   margin: 0; 
 }
 
-
-.header {
-	background-color: rgb(50, 104, 145);
-}
-
-h1 {
-	text-align: center;
-	color: white;
-	font-family: Georgia, "Times New Roman", Times, serif;
-}
-
-legend {
-	color: rgb(50, 104, 145);
+#ulIngredients li {
+  margin-bottom: 10px;
 }
 
 
 
-/* ================================ FORM ================================  */
+
+/* ======================== Recipe Selection FORM ========================  */
 form {
 	margin: 30px 0 20px;
 	border: 1px solid lightgray;
 	border-radius: 0 15px 0 0;
+  box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+  filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
 }
 
 .formhead {
@@ -78,6 +95,10 @@ form {
   border-radius: inherit;
 }
 
+legend {
+	color: var(--greekBlue);
+}
+
 .form-group {
 	padding: 0 35px;
 }
@@ -85,9 +106,17 @@ form {
 .form-control{
   background-color: rgba(50, 104, 145, 0.05);
   height: 50px; 
-  color: rgba(50, 104, 145); /* dropdown legend */
+  color: var(--greekBlue); /* dropdown legend */
   /* dropdown legend */
   margin-top: 30px;
+  /* disable bootstrap defaults */
+  box-shadow: none!important;
+  outline: -webkit-focus-ring-color auto 0px!important;
+  border-color: none;
+}
+
+.form-control:focus {
+  border-color: var(--greekBlue)
 }
 
 input::placeholder {
@@ -101,20 +130,53 @@ input:-webkit-autofill:focus {
 }
 
 option {
-  color:rgba(50, 104, 145); 
+  color: var(--greekBlue);
 }
- option:hover {
-  color:red;   
-} 
+option:focus {
+  color: var(--greekBlue);
+}
 
+
+/* option:checked, option:hover {
+  background-color: red !important;   
+} */
+
+.dropdown-content li.active, .dropdown-content li:hover {
+  background-color: red;
+}
 
 .btn {
-	border: 1px solid lightgray;
-	color: rgb(50, 104, 145);
-	background-color: rgba(50, 104, 145, .2);
+  outline: solid 1px #fff;
+  outline-offset: -5px;
+	color: white;
+  font-family: "Lobster", "Georgia", serif;
+  background-color: var(--greekBlue) !important;
+  height: 100px;
+  font-size: 40px;
 }
 
-/* ============================ end of FORM ============================  */
+.btn:hover {
+  color: white !important;
+  font-family: "Lobster", "Georgia", serif;
+  box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+  filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
+}
+
+.btn:focus {
+   box-shadow: none;
+   outline: solid 1px #fff !important;
+   outline-offset: -5px !important;
+ }
+
+/* ========================== Recipe Directions ==========================  */
+
+
+
+
+
+
+
+/* =============================== Videos ===============================  */
 
 #recipeVideos {
   margin-top: 30px;
@@ -146,10 +208,22 @@ option {
 #videoResult {
 padding-bottom: 20px;
 }
+h5 {
+  margin-top: 30px;
+}
 
 iframe {
-  border: 1px solid red;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.btn-modal {
+	margin: 40px 0;
+}
+
+/* ================================ footer ================================ */
+#backtoTop {
+  font-size: 40px;
+  line-height: 80px;
 }
 
 footer {
@@ -158,23 +232,20 @@ footer {
 }
 
 footer a {
-	color: rgb(50, 104, 145);
+	color: var(--greekBlue);
 	font-weight: bold;
 }
 
 .credits {
 	font-size: 16px;
+  line-height: 30px;
 }
 
 #creditLinks {
 	font-weight: bold;
 }
 
-.btn-modal {
-	margin: 40px 0;
-}
-
-/* ================= RESPONSIVE MEDIA QUERIES ================= */
+/* ======================== RESPONSIVE MEDIA QUERIES ======================== */
 
 /* Extra small devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap */
@@ -191,9 +262,15 @@ No media query since this is the default in Bootstrap */
 @media (min-width: 992px) {
   ul.ingredients {
     /* list-style-type: none; */
-    list-style: none inside url("../../images/greenCheck-15.png");
+    list-style: none outside url("../../images/greenCheck-15.png");
     padding: 0; 
     margin: 0; 
+  }
+
+  .btn {
+
+    height: 60px;
+    font-size: 20px;
   }
 }
 

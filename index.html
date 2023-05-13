@@ -16,29 +16,31 @@
 
   <link rel="stylesheet" href="./assets/CSS/jquery-ui.css">
   <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap.css" >
-  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap.min.css"> 
+  <!-- <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap.min.css"> 
   <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-grid.css"> 
   <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-grid.min.css"> 
   <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-reboot.css" >
-  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-reboot.min.css" >
+  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-reboot.min.css" > -->
   <link rel="stylesheet" href="./assets/CSS/style.css" />
   
-  <title>MealDeal</title>
+  <title>CLook</title>
+
 </head>
 
 <body>
   
   <div class="container">
     
-    <div id="header" class="row header align-items-center px-2 py-3">
-      <div class="col-sm-2">
+    <div id="header" class="row header align-items-center px-2 py-3 rounded text-white">
+      <div class="col-2 text-center my-auto font-italic">
+       <span>estd.<br>2023</span>
       </div>
 
-        <div class="col-sm-8 py-auto">
-          <h1>MealDeal</h1>
+        <div class="col-8 py-auto">
+          <h1 id="one">CLook</h1>
         </div> 
 
-        <div class="col-sm-2">
+        <div class="col-2">
         </div> 
       </div> 
       
@@ -46,23 +48,25 @@
         
         <div class="col-md-12 col-lg-5 order-2 order-lg-1">
           <aside class="text-center text-lg-left ml-2">
-          <h3 class="text-center" id="recipeName"></h3>
-          <img id="photo" src="./images/www_castingimage_com_spandeli_0186.jpg" class="ml-md-3" alt="recipe image" width="300px" height="300px">
           
-          <article class="text-lg-left pl-2 mt-3 ml-4">          
-            <h2 class="ml-lg-4">Ingredients</h2>          
+          <img id="photo" src="./images/www_castingimage_com_spandeli_0186.jpg" class="rounded ml-md-3" alt="recipe image" width="300px" height="300px">
+          
+          <article class="text-lg-left pl-2 pr-3 mt-2 ml-4">  
+                 
+            <h5 class="ml-lg-0">Ingredients for:</h5>
+            <h2 class="mb-2" id="recipeName"></h2>         
             <ul class="ingredients mt-3" id="ulIngredients">
               <li class="ingredients">2 to 3 eggs per omelet</li>
-                    <li class="ingredients">2 tablespoons butter per omelet</li>
-                    <li class="ingredients">1 tablespoon milk or cream</li>
-                    <li class="ingredients">Salt and pepper</li>
-                    <li class="ingredients">1 tablespoon clarified butter</li>
-                    <li class="ingredients">1 teaspoon chives, finely chopped</li>
-                    <li class="ingredients">1 teaspoon flat leaf parsley, finely chopped</li>
-                    <li class="ingredients">1 teaspoon chervil, finely chopped</li>
-                    <li class="ingredients">1 teaspoon tarragon, finely chopped</li>
-                </ul>
-              </article>
+              <li class="ingredients">2 tablespoons butter per omelet</li>
+              <li class="ingredients">1 tablespoon milk or cream</li>
+              <li class="ingredients">Salt and pepper</li>
+              <li class="ingredients">1 tablespoon clarified butter</li>
+              <li class="ingredients">1 teaspoon chives, finely chopped</li>
+              <li class="ingredients">1 teaspoon flat leaf parsley, finely chopped</li>
+              <li class="ingredients">1 teaspoon chervil, finely chopped</li>
+              <li class="ingredients">1 teaspoon tarragon, finely chopped</li>
+          </ul>
+        </article>
        </aside>
        
       </div>
@@ -70,8 +74,8 @@
       
       <main class="col-md-12 col-lg-7 order-1 order-lg-2 pl-3">
         <div id="maincontainer"> 
-          <form class="mr-4">
-            <div class="formhead px-3 mb-3 py-1">
+          <form class="mr-lg-4">
+            <div class="formhead pl-lg-4 mb-3 py-1 text-center text-lg-left">
               <legend>Recipe Selection:</legend>
             </div>
             <div class="form-group form-control-lg">
@@ -79,12 +83,13 @@
               <input type="text" class="form-control" id="searchTerm" placeholder="Lasagne">
             </div>
             
-            <div class="form-group">            
-              <select class="form-control custom-select mt-1" id="diet">
-                <option selected data-name="" >Diet: (optional)</option>
-                <option value="1" data-name="&diet=balanced">Balanced</option>
-                <option value="2" data-name="&diet=high-fiber">High-fiber</option>
-                <option value="3" data-name="&diet=high-protein">High-protein</option>
+
+          <div class="form-group">            
+            <select class="form-control custom-select mt-1" id="diet">
+              <option selected data-name="">Diet: (optional)</option>
+              <option value="1" data-name="&diet=balanced">Balanced</option>
+              <option value="2" data-name="&diet=high-fiber">High-fiber</option>
+              <option value="3" data-name="&diet=high-protein">High-protein</option>
               <option value="4" data-name="&diet=low-carb">Low-carb</option>
               <option value="5" data-name="&diet=low-fat">Low-fat</option>
               <option value="6" data-name="&diet=low-sodium">Low-sodium</option>
@@ -114,7 +119,7 @@
           
           <div class="selectWrapper form-group">  
             <select class="form-control custom-select mt-1" id="meal-type">
-              <option selected data-name="" >Meal type: (optional)</option>
+              <option selected data-name="">Meal type: (optional)</option>
               <option value="1" data-name="&mealType=breakfast">Breakfast</option>
               <option value="2" data-name="&mealType=lunch">Lunch</option>
               <option value="3" data-name="&mealType=dinner">Dinner</option>
@@ -123,37 +128,55 @@
           
           
           <div class="row form-group mt-4">
-              <div class="col-12"><button id="searchButton" type="button" class="btn btn-lg btn-block mb-4">Search</button></div>
+              <div class="col-12"><button id="searchButton" type="button" class="btn btn-lg btn-block mb-4 mt-4 mt-lg-1">Search</button></div>
             </div>
           </form>
+
+          <!-- ============================= NEW DIV ============================= -->
+          <div id="">
+            <button id="" type="button" class="btn btn-lg btn-block"></button>
+            <a href="" id=""></a>
+            <div id="">
+              <button id="" type="button" class="btn btn-lg btn-block"></button>
+                  <h6 id=""></h6>
+                  <h6 id=""></h6>
+                  <h6 id=""></h6>
+              <button id="" type="button" class="btn btn-lg btn-block"></button>
+            </div>
+          </div>
+
+        <!-- end of maincontainer -->
         </div>
+
+       <!-- end of main --> 
       </main>
-      
-      
-      
+         
+  <!-- end of row --> 
   </div>
   
   
   
   <div class="row" id="recipeVideos">
-    <div class="col-sm-12 articleHead text-center mb-3 py-2"><h3>Alternative Recipe Videos</h3></div>
+    <div class="col-12 articleHead text-center mb-2 py-2">
+      <h3>Alternative Recipe Videos</h3>
+    </div>
     <div class="col-sm-12" id="videoResult">
       
     </div>
-    
+  
   </div>
 </div>
 
 <!-- //BACK-TO-TOP -->
 <div class="row w-75 mx-auto mt-3 pb-2 d-block d-md-none">
-  <a class="col-12 btn btn-dark btn-lg btn-block py-5 " href="#header" role="button" id="backtoTop">Back to Top</a>
+  <a class="col-12 btn btn-dark btn-lg btn-block" href="#header" role="button" id="backtoTop">Back to the Top</a>
 </div>
 
 
 
 
 <footer>
-  <small class="credits">Designed by the codeBreakers<br><span id="creditLinks"><a href="https://github.com/fot28">Fotios Polymenakos</a> &amp <a href="https://github.com/forestdean">John Walton</a></span></small>
+  <small class="credits">designed by the codeBreakers<br><span id="creditLinks"><a href="https://github.com/fot28">Fotios Polymenakos</a> &amp <a href="https://github.com/forestdean">John Walton</a></span></small>
 </footer>
 
 </div> 

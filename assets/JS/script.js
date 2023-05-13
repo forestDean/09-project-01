@@ -57,14 +57,11 @@ function iterateResults(i, data) {
 		$(".ingredients").append("<li>" + line + "</li>");
 	});
 
-	$("#maincontainer")
-		.addClass("text-center")
-		.css("font-size", "22px")
-		.append(
-			'<a href="' +
-				data[i].recipe.url +
-				'" target="_blank">Click Here and follow the Directions</a>'
-		);
+	$("#maincontainer").append(
+		'<a href="' +
+			data[i].recipe.url +
+			'" target="_blank">Click Here and follow the Directions</a>'
+	);
 
 	var buttonsContainer = $("<div>")
 		.addClass("row")
@@ -96,18 +93,15 @@ function displayResults(image, ingrLines, recipelabel, data) {
 		$(".ingredients").append("<li>" + line + "</li>");
 	});
 
-	$("#maincontainer")
-		.addClass("text-center")
-		.css("font-size", "22px")
-		.append(
-			'<a href="' +
-				data[0].recipe.url +
-				'" target="_blank">Click Here and follow the Recipe Directions</a>'
-		);
+	$("#maincontainer").append(
+		'<a href="' +
+			data[0].recipe.url +
+			'" target="_blank">Click Here and follow the Recipe Directions</a>'
+	);
 
-	$("#maincontainer")
-		.addClass("text-center pt-2")
-		.append("<h5>Use the buttons to check for other recipes</h5>");
+	$("#maincontainer").append(
+		"<h5>Use the buttons to check for other recipes</h5>"
+	);
 
 	var buttonsContainer = $("<div>").addClass(
 		"row d-flex justify-content-around align-items-center"
@@ -115,19 +109,19 @@ function displayResults(image, ingrLines, recipelabel, data) {
 	// .css("background-color", "#2d3e50");
 
 	$("<button>")
-		.addClass("text-dark col-2 btn btn-lg btn-block")
-		.attr("id", "back")
+		.addClass("col-2 btn btn-lg btn-block")
+		.attr()
 		.text("<")
 		.appendTo(buttonsContainer);
 
 	$("<h6>")
-		.addClass("text-dark pt-3 col-3")
+		.addClass("pt-3 col-3")
 		.text("1 / " + data.length)
 		.appendTo(buttonsContainer);
 
 	$("<button>")
-		.addClass("text-dark col-2 btn btn-lg btn-block")
-		.attr("id", "forth")
+		.addClass("col-2 btn btn-lg btn-block")
+		.attr()
 		.text(">")
 		.appendTo(buttonsContainer);
 
@@ -169,7 +163,7 @@ function searchVideos(search) {
 	var queryURL =
 		"https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
 		search +
-		"-recipe&type=video&key=AIzaSyCJ8OYo2IstOyF4cTPB8RdifVPOX7kSLiU";
+		"-recipe&type=video&key=AIzaSyCQoBbcjBjOyOqHyEILxJZ_74-lCNt6_X4";
 
 	// Make AJAX request to the API
 	$.ajax({
@@ -214,7 +208,7 @@ function displayYouTubeResults(items) {
 
 		// Append the video title and embed code to the videoResult container
 		$("#videoResult")
-			.addClass("col-sm-12 text-center mb-3 pt-3")
+			.addClass("col-12 text-center mb-3 pt-3")
 			.append("<h5>" + videoTitle + "</h5>")
 			.append(embedCode);
 	});
