@@ -37,6 +37,7 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 		var ingrLines = response.hits[0].recipe.ingredientLines;
 		var recipelabel = response.hits[0].recipe;
 		displayResults(image, ingrLines, recipelabel, data);
+		ret;
 	});
 }
 
@@ -56,12 +57,11 @@ function iterateResults(i, data) {
 		$(".ingredients").append("<li>" + line + "</li>");
 	});
 
-	$("#maincontainer")
-		.append(
-			'<a href="' +
-				data[i].recipe.url +
-				'" target="_blank">Click Here and follow the Directions</a>'
-		);
+	$("#maincontainer").append(
+		'<a href="' +
+			data[i].recipe.url +
+			'" target="_blank">Click Here and follow the Directions</a>'
+	);
 
 	var buttonsContainer = $("<div>")
 		.addClass("row")
@@ -93,15 +93,15 @@ function displayResults(image, ingrLines, recipelabel, data) {
 		$(".ingredients").append("<li>" + line + "</li>");
 	});
 
-	$("#maincontainer")
-		.append(
-			'<a href="' +
-				data[0].recipe.url +
-				'" target="_blank">Click Here and follow the Recipe Directions</a>'
-		);
+	$("#maincontainer").append(
+		'<a href="' +
+			data[0].recipe.url +
+			'" target="_blank">Click Here and follow the Recipe Directions</a>'
+	);
 
-	$("#maincontainer")
-		.append("<h5>Use the buttons to check for other recipes</h5>");
+	$("#maincontainer").append(
+		"<h5>Use the buttons to check for other recipes</h5>"
+	);
 
 	var buttonsContainer = $("<div>").addClass(
 		"row d-flex justify-content-around align-items-center"
@@ -110,6 +110,7 @@ function displayResults(image, ingrLines, recipelabel, data) {
 
 	$("<button>")
 		.addClass("col-2 btn btn-lg btn-block")
+		.attr()
 		.text("<")
 		.appendTo(buttonsContainer);
 
@@ -120,6 +121,7 @@ function displayResults(image, ingrLines, recipelabel, data) {
 
 	$("<button>")
 		.addClass("col-2 btn btn-lg btn-block")
+		.attr()
 		.text(">")
 		.appendTo(buttonsContainer);
 
@@ -235,6 +237,16 @@ $("#searchButton").on("click", function (event) {
 	fetchData(foodInput, dietInput, alergiesInput, mealTypeInput);
 	searchVideos(foodInput);
 	$("#searchTerm").val("");
+});
+
+$("#forth").on("click", function () {
+	// event.preventDefault();
+	// Empty the ul element with class "ingredients"
+	$(".ingredients").empty();
+	$("#videoResult").empty();
+	i++;
+	// Function to capitalize the first letter of a string
+	iterateResults(i);
 });
 
 $(document).ready(function () {
