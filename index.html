@@ -126,13 +126,16 @@
 
         <!-- end of maincontainer -->
         </div>
-        <div id="recipeDataContainer" class=" flex-row justify-content-around">
-          <button id="previousButton" class="btn btn-lg btn-block d-none">Previous</button>
-          <h6 id="currentIndex" class="d-none"></h6>
-          <h6 id="slash" class="d-none">/</h6>
-          <h6 id="totalRecipes" class="d-none"></h6>
-          <button id="nextButton" class="btn btn-lg btn-block d-none">Next</button>
+        <div id="recipeDataContainer" class="d-flex flex-column align-items-center justify-content-around">
+          <button id="previousButton" class="btn btn-lg btn-block d-none mb-3 w-50">Previous</button>
+          <div id="indexIterate" class="d-flex justify-content-between">
+            <h6 id="currentIndex" class="d-none  bg-primary p-1 m-2 rounded"></h6>
+            <h6 id="slash" class="d-none bg-primary p-1 m-2 rounded">/</h6>
+            <h6 id="totalRecipes" class="d-none bg-primary p-1 m-2 rounded"></h6>
+          </div>
+          <button id="nextButton" class="btn btn-lg btn-block d-none mt-3 w-50">Next</button>
         </div>
+        
        <!-- end of main --> 
       </main>
 
