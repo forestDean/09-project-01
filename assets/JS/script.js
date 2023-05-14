@@ -26,6 +26,10 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 	}).then(function (response) {
 		var data = response.hits;
 		displayResults(data);
+		// Save the data to local storage
+		localStorage.setItem("recipeData", JSON.stringify(data));
+		// Pass the data to iterateRecipes
+		iterateRecipes(data);
 	});
 }
 
@@ -126,8 +130,93 @@ function displayYouTubeResults(items) {
 	});
 }
 
+function iterateRecipes(recipeData) {
+	// Retrieve recipe data from local storage
+	var recipeData = JSON.parse(localStorage.getItem("recipeData"));
+
+	// Set the total number of recipes
+	var totalRecipes = recipeData.length;
+	$("#totalRecipes").text(totalRecipes);
+
+	// Initialize the current index
+	var currentIndex = 0;
+	$("#currentIndex").text(currentIndex + 1);
+
+	// Function to display recipe data at the current index
+	function displayRecipeData(index) {
+		var recipe = recipeData[index];
+
+		// Display the recipe information
+		$("#photo").attr("src", recipe.recipe.image);
+		$("#recipeName").text(recipe.recipe.label);
+
+		// Clear previous ingredient lines
+		$(".ingredients").empty();
+
+		// Iterate through the ingredient lines and append them to the ul element
+		$.each(recipe.recipe.ingredientLines, function (index, line) {
+			$(".ingredients").append("<li>" + line + "</li>");
+		});
+
+		// Clear the modal body
+		$("#modal-body").empty();
+
+		// Iterate through the nutrition info and append them to the modal body
+		$.each(recipe.recipe.totalNutrients, function (key, nutrient) {
+			var label = nutrient.label;
+			var quantity = nutrient.quantity.toFixed(2);
+			var unit = nutrient.unit;
+
+			var h6Element = $("<h6>").text(label + ": " + quantity + " " + unit);
+
+			$("#modal-body").append(h6Element);
+		});
+
+		// Update the "Directions" button link
+		$("#directions").attr("href", recipe.recipe.url);
+	}
+
+	// Function to update the current index display
+	function updateCurrentIndexDisplay() {
+		$("#currentIndex").text(currentIndex + 1);
+	}
+
+	// Event listener for the previous button
+	$("#previousButton").on("click", function () {
+		if (currentIndex > 0) {
+			currentIndex--;
+			displayRecipeData(currentIndex);
+			updateCurrentIndexDisplay();
+		}
+	});
+
+	// Event listener for the next button
+	$("#nextButton").on("click", function () {
+		if (currentIndex < totalRecipes - 1) {
+			currentIndex++;
+			displayRecipeData(currentIndex);
+			updateCurrentIndexDisplay();
+		}
+	});
+
+	// Display the initial recipe data
+	displayRecipeData(currentIndex);
+}
+
 $("#searchButton").on("click", function (event) {
 	event.preventDefault();
+
+	// Check if recipeData exists in local storage
+	var recipeDataExists = localStorage.getItem("recipeData") !== null;
+
+	if (recipeDataExists) {
+		// Delete the recipeData from local storage
+		localStorage.removeItem("recipeData");
+
+		// Reset the current index to 1
+		$("#currentIndex").text(1);
+	}
+
 	// Empty the ul element with class "ingredients"
 	$(".ingredients").empty();
 
