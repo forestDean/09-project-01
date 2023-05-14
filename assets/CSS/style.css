@@ -1,5 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lobster&display=swap');
 /* request to Google Fonts API */
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lobster&family=Phudu:wght@300&display=swap');
 
 :root {
   --greekBlue:rgb(0, 20, 137);
@@ -36,7 +36,6 @@ h1 {
 	color: white;
   font-size: 70px;
 	font-family: "Lobster", "Georgia", serif;
-  /* -webkit-text-stroke: 2px var(--greekBlue); */
 }
 
 
@@ -45,17 +44,12 @@ h1 {
 
 /* ==================== Ingredients - photo & text ====================  */
  aside {
-  /* background-color: rgba(50, 104, 145, 0.1); */
   margin-top: 30px;
  }
 
  article {
   padding: 5px;
-  /* padding-left: ; */
-  /* background-color: rgba(50, 104, 145, 0.1); */
  }
-
- /* <h3 class="text-center" id="recipeName">Spinach lasagne</h3> */
 
 #photo {
   width: 300px;
@@ -138,13 +132,8 @@ option {
   color: var(--greekBlue);
 }
 option:focus {
-  color: var(--greekBlue);
+  /* color: var(--greekBlue); */
 }
-
-
-/* option:checked, option:hover {
-  background-color: red !important;   
-} */
 
 .dropdown-content li.active, .dropdown-content li:hover {
   background-color: red;
@@ -174,8 +163,6 @@ option:focus {
  }
 
  .btn:active {
-  /* -webkit-transition: width .2s ease-in-out;
-  transition: width .2s ease-in-out; */
   box-shadow: none;
   filter: none;
  }
@@ -273,14 +260,12 @@ No media query since this is the default in Bootstrap */
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   ul.ingredients {
-    /* list-style-type: none; */
     list-style: none outside url("../../images/greenCheck-15.png");
     padding: 0; 
     margin: 0; 
   }
 
   .btn {
-
     height: 60px;
     font-size: 20px;
   }
