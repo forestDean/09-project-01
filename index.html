@@ -132,13 +132,14 @@
             <!-- Trigger the modal with a button -->
             <button id="nutritions" type="button" class="btn btn-info btn-lg d-none" data-toggle="modal" data-target="#myModal">Recipe nutrition information</button>
             <a href="#" id="directions" target="_blank" class="d-none">Click Here and follow the Directions</a>
-            <div id="recipeDataContainer">
-              <button id="previousButton">Previous</button>
-              <h6 id="currentIndex"></h6>
-              <h6>/</h6>
-              <h6 id="totalRecipes"></h6>
-              <button id="nextButton">Next</button>
+            <div id="recipeDataContainer" class="row d-flex flex-row justify-content-around">
+              <button id="previousButton" class="btn btn-lg btn-block d-none">Previous</button>
+              <h6 id="currentIndex" class="d-none"></h6>
+              <h6 id="slash" class="d-none">/</h6>
+              <h6 id="totalRecipes" class="d-none"></h6>
+              <button id="nextButton" class="btn btn-lg btn-block d-none">Next</button>
             </div>
+            
           </div>
 
         <!-- end of maincontainer -->

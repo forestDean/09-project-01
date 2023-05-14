@@ -95,6 +95,11 @@ function displayYouTubeResults(items) {
 	// Remove the "d-none" class from the elements
 	$("#nutritions").removeClass("d-none");
 	$("#directions").removeClass("d-none");
+	$("#previousButton").removeClass("d-none");
+	$("#currentIndex").removeClass("d-none");
+	$("#totalRecipes").removeClass("d-none");
+	$("#nextButton").removeClass("d-none");
+	$("#slash").removeClass("d-none");
 
 	// Clear the videoResult container
 	$("#videoResult").empty();
@@ -243,6 +248,9 @@ $("#searchButton").on("click", function (event) {
 $(document).ready(function () {
 	// Set a cookie with SameSite attribute
 	document.cookie = "cookieName=cookieValue; SameSite=Lax";
+
+	// Set padding of buttons to 0
+	$("#previousButton, #nextButton").css("padding", "0");
 
 	// Hide the recipe videos section
 	$("#recipeVideos").css("display", "none");
