@@ -91,6 +91,10 @@ function displayYouTubeResults(items) {
 	// Show the recipeVideos section
 	$("#recipeVideos").css("display", "block");
 
+	// Remove the "d-none" class from the elements
+	$("#nutritions").removeClass("d-none");
+	$("#directions").removeClass("d-none");
+
 	// Clear the videoResult container
 	$("#videoResult").empty();
 
@@ -148,8 +152,6 @@ $("#searchButton").on("click", function (event) {
 
 	// Clear the search term input field
 	$("#searchTerm").val("");
-
-	$("#nutritionsDirections").css("display", "block");
 });
 
 $(document).ready(function () {
