@@ -241,6 +241,10 @@ footer a {
 	font-weight: bold;
 }
 
+#recipe-container {
+	display: none;
+}
+
 /* ======================== RESPONSIVE MEDIA QUERIES ======================== */
 
 /* Extra small devices (portrait phones, less than 576px)

@@ -57,6 +57,9 @@ function displayResults(data) {
 
 	// Additional code for buttons and video search results
 	$("#directions").attr("href", data[0].recipe.url);
+	setTimeout(function () {
+		$("#recipe-container").css("display", "block");
+	}, 200);
 }
 
 function saveHistory(foodInput) {
