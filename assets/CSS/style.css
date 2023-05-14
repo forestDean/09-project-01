@@ -113,6 +113,7 @@ legend {
   box-shadow: none!important;
   outline: -webkit-focus-ring-color auto 0px!important;
   border-color: none;
+  border-radius: 10px;
 }
 
 .form-control:focus {
@@ -129,6 +130,10 @@ input:-webkit-autofill:focus {
 	transition: background-color 600000s 0s, color 600000s 0s;
 }
 
+.custom-select * {
+}
+
+/* option is a 'replaced element' and styling is OS-dependent */
 option {
   color: var(--greekBlue);
 }
@@ -166,6 +171,13 @@ option:focus {
    box-shadow: none;
    outline: solid 1px #fff !important;
    outline-offset: -5px !important;
+ }
+
+ .btn:active {
+  /* -webkit-transition: width .2s ease-in-out;
+  transition: width .2s ease-in-out; */
+  box-shadow: none;
+  filter: none;
  }
 
 /* ========================== Recipe Directions ==========================  */
