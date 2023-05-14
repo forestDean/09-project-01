@@ -26,8 +26,6 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 	}).then(function (response) {
 		var data = response.hits;
 		displayResults(data);
-		console.log(data);
-		console.log(data[0].recipe.totalNutrients);
 	});
 }
 
@@ -56,8 +54,12 @@ function displayResults(data) {
 
 		$("#modal-body").append(h6Element);
 	});
+
 	// Additional code for buttons and video search results
 	$("#directions").attr("href", data[0].recipe.url);
+	setTimeout(function () {
+		$("#recipe-container").css("display", "block");
+	}, 200);
 }
 
 function saveHistory(foodInput) {
@@ -74,7 +76,7 @@ function searchVideos(search) {
 	var queryURL =
 		"https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
 		search +
-		"-recipe&type=video&key=AIzaSyCQoBbcjBjOyOqHyEILxJZ_74-lCNt6_X4";
+		"-recipe&type=video&key=AIzaSyBa9lY2xF5vOJmaKGWxcJGgtx0w9fByZSk";
 
 	// Make AJAX request to the API
 	$.ajax({
@@ -148,14 +150,19 @@ $("#searchButton").on("click", function (event) {
 
 	// Clear the search term input field
 	$("#searchTerm").val("");
+
+	$("#nutritionsDirections").css("display", "block");
 });
 
 $(document).ready(function () {
 	// Set a cookie with SameSite attribute
 	document.cookie = "cookieName=cookieValue; SameSite=Lax";
 
-	// // Hide the recipe videos section
-	// $("#nutritionsDirections").css("display", "none!important");
+	var foodInput = "Chicken";
+	var dietInput = "";
+	var alergiesInput = "";
+	var mealTypeInput = "";
+	fetchData(foodInput, dietInput, alergiesInput, mealTypeInput);
 
 	// Hide the recipe videos section
 	$("#recipeVideos").css("display", "none");
