@@ -26,6 +26,7 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 	}).then(function (response) {
 		var data = response.hits;
 		displayResults(data);
+		console.log(data);
 	});
 }
 
@@ -37,6 +38,11 @@ function displayResults(data) {
 	$(".ingredients").empty();
 
 	// Iterate through the ingredient lines and append them to the ul element
+	$.each(data[0].recipe.ingredientLines, function (index, line) {
+		$(".ingredients").append("<li>" + line + "</li>");
+	});
+
+	// Iterate through the nutrition info and append them to the modal body
 	$.each(data[0].recipe.ingredientLines, function (index, line) {
 		$(".ingredients").append("<li>" + line + "</li>");
 	});
@@ -138,6 +144,9 @@ $("#searchButton").on("click", function (event) {
 $(document).ready(function () {
 	// Set a cookie with SameSite attribute
 	document.cookie = "cookieName=cookieValue; SameSite=Lax";
+
+	// // Hide the recipe videos section
+	// $("#nutritionsDirections").css("display", "none!important");
 
 	// Hide the recipe videos section
 	$("#recipeVideos").css("display", "none");
