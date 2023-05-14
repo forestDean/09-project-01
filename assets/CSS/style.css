@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lobster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Lobster&display=swap");
 /* request to Google Fonts API */
 
 :root {
-  --greekBlue:rgb(0, 20, 137);
-  --lightGrey:rgba(128, 128, 128, 0.5);
-} 
+	--greekBlue: rgb(0, 20, 137);
+	--lightGrey: rgba(128, 128, 128, 0.5);
+}
 
 * {
 	box-sizing: border-box;
@@ -13,80 +13,89 @@
 body {
 	font-family: "Lato", sans-serif;
 	color: var(--greekBlue);
+	background-image: url(/images/despina-galani-_Q8IRmOpsGM-unsplash.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
 }
-
 
 .container {
-  width: 1000px;
-  margin-top: 20px;
-  border: 1px solid rgba(128, 128, 128, 0.1)
- } 
-     
- .header {
-	background-color: var(--greekBlue);
-  outline: solid 2px #fff;
-  outline-offset: -5px;
-  box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
-  filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
+	background-color: #ffffffd7;
+	width: 1000px;
+	margin-top: 20px;
+	border: 1px solid rgba(128, 128, 128, 0.1);
 }
 
+.header {
+	background-color: var(--greekBlue);
+	outline: solid 2px #fff;
+	outline-offset: -5px;
+	box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+	filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
+}
+
+.header {
+	background-color: var(--greekBlue);
+	outline: solid 2px #fff;
+	outline-offset: -5px;
+	box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+	filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
+}
 
 h1 {
 	text-align: center;
 	color: white;
-  font-size: 70px;
+	font-size: 70px;
 	font-family: "Lobster", "Georgia", serif;
 }
-
 
 /* main {
 } */
 
 /* ==================== Ingredients - photo & text ====================  */
- aside {
-  margin-top: 30px;
- }
+aside {
+	margin-top: 30px;
+}
 
- article {
-  padding: 5px;
- }
+article {
+	padding: 5px;
+}
 
 #photo {
-  width: 300px;
-  height: 300px ;
-  border: none;
-	border-radius: 15px 0 0 ;
-  box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
-  filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
+	width: 300px;
+	height: 300px;
+	border: none;
+	border-radius: 15px 0 0;
+	box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+	filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
 }
 
 #ulIngredients {
-  list-style-type: none;
-  padding: 0; 
-  margin: 0; 
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
 }
 
 #ulIngredients li {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
-
-
-
 
 /* ======================== Recipe Selection FORM ========================  */
 form {
 	margin: 30px 0 20px;
 	border: 1px solid lightgray;
 	border-radius: 0 15px 0 0;
-  box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
-  filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
+	box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+	filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
+	background-color: #ffffff91;
 }
 
 .formhead {
 	background-color: rgba(50, 104, 145, 0.1);
 	width: 100%;
 	height: 50px;
-  border-radius: inherit;
+	border-radius: inherit;
 }
 
 legend {
@@ -97,25 +106,25 @@ legend {
 	padding: 0 35px;
 }
 
-.form-control{
-  background-color: rgba(50, 104, 145, 0.05);
-  height: 50px; 
-  color: var(--greekBlue); /* dropdown legend */
-  /* dropdown legend */
-  margin-top: 30px;
-  /* disable bootstrap defaults */
-  box-shadow: none!important;
-  outline: -webkit-focus-ring-color auto 0px!important;
-  border-color: none;
-  border-radius: 10px;
+.form-control {
+	background-color: rgba(50, 104, 145, 0.05);
+	height: 50px;
+	color: var(--greekBlue); /* dropdown legend */
+	/* dropdown legend */
+	margin-top: 30px;
+	/* disable bootstrap defaults */
+	box-shadow: none !important;
+	outline: -webkit-focus-ring-color auto 0px !important;
+	border-color: none;
+	border-radius: 10px;
 }
 
 .form-control:focus {
-  border-color: var(--greekBlue)
+	border-color: var(--greekBlue);
 }
 
 input::placeholder {
-  color:rgba(50, 104, 145, 0.3) !important;
+	color: rgba(50, 104, 145, 0.3) !important;
 }
 
 /* hack to remove default Bootstrap input styling */
@@ -129,92 +138,89 @@ input:-webkit-autofill:focus {
 
 /* option is a 'replaced element' and styling is OS-dependent */
 option {
-  color: var(--greekBlue);
+	color: var(--greekBlue);
 }
 option:focus {
-  /* color: var(--greekBlue); */
+	/* color: var(--greekBlue); */
 }
 
-.dropdown-content li.active, .dropdown-content li:hover {
-  background-color: red;
+.dropdown-content li.active,
+.dropdown-content li:hover {
+	background-color: red;
 }
 
 .btn {
-  outline: solid 1px #fff;
-  outline-offset: -5px;
+	outline: solid 1px #fff;
+	outline-offset: -5px;
 	color: white;
-  font-family: "Lobster", "Georgia", serif;
-  background-color: var(--greekBlue) !important;
-  height: 100px;
-  font-size: 40px;
+	font-family: "Lobster", "Georgia", serif;
+	background-color: var(--greekBlue) !important;
+	height: 100px;
+	font-size: 40px;
 }
 
 .btn:hover {
-  color: white !important;
-  font-family: "Lobster", "Georgia", serif;
-  box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
-  filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
+	color: white !important;
+	font-family: "Lobster", "Georgia", serif;
+	box-shadow: 2px 5px 8px rgba(128, 128, 128, 0.5);
+	filter: drop-shadow(2px 5px 8px rgba(128, 128, 128, 0.5));
 }
 
 .btn:focus {
-   box-shadow: none;
-   outline: solid 1px #fff !important;
-   outline-offset: -5px !important;
- }
+	box-shadow: none;
+	outline: solid 1px #fff !important;
+	outline-offset: -5px !important;
+}
 
- .btn:active {
-  box-shadow: none;
-  filter: none;
- }
+.btn:active {
+	box-shadow: none;
+	filter: none;
+}
 
 /* ========================== Recipe Directions ==========================  */
 
-#directions{
-  border: 3px dashed red;
+#directions {
+	border: 3px dashed red;
 }
-
-
-
-
 
 /* =============================== Videos ===============================  */
 
 #recipeVideos {
-  margin-top: 30px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
+	margin-top: 30px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
 }
 
 .articleHead {
 	background-color: rgba(50, 104, 145, 0.1);
 }
 
-#videoResult{
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  align-items: center;
+#videoResult {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+	align-items: center;
 }
 
-#videoResult div{
-  padding:1rem !important;
-  margin-bottom: 1rem !important;
-  width:max(50%,300px);
+#videoResult div {
+	padding: 1rem !important;
+	margin-bottom: 1rem !important;
+	width: max(50%, 300px);
 }
 
-#videoResult p{
-  color: rgb(84, 86, 98) !important;
+#videoResult p {
+	color: rgb(84, 86, 98) !important;
 }
 
 #videoResult {
-padding-bottom: 20px;
+	padding-bottom: 20px;
 }
 h5 {
-  margin-top: 30px;
+	margin-top: 30px;
 }
 
 iframe {
-  margin-top: 10px;
+	margin-top: 10px;
 }
 
 .btn-modal {
@@ -223,11 +229,12 @@ iframe {
 
 /* ================================ footer ================================ */
 #backtoTop {
-  font-size: 40px;
-  line-height: 80px;
+	font-size: 40px;
+	line-height: 80px;
 }
 
 footer {
+	background-color: #ffffffd7;
 	margin: 30px 0 40px;
 	text-align: center;
 }
@@ -239,7 +246,7 @@ footer a {
 
 .credits {
 	font-size: 16px;
-  line-height: 30px;
+	line-height: 30px;
 }
 
 #creditLinks {
@@ -261,16 +268,16 @@ No media query since this is the default in Bootstrap */
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  ul.ingredients {
-    list-style: none outside url("../../images/greenCheck-15.png");
-    padding: 0; 
-    margin: 0; 
-  }
+	ul.ingredients {
+		list-style: none outside url("../../images/greenCheck-15.png");
+		padding: 0;
+		margin: 0;
+	}
 
-  .btn {
-    height: 60px;
-    font-size: 20px;
-  }
+	.btn {
+		height: 60px;
+		font-size: 20px;
+	}
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

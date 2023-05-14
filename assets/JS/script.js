@@ -24,137 +24,33 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 		url: queryURL,
 		method: "GET",
 	}).then(function (response) {
-		// Extract relevant data from the API response
-		console.log(response);
-		console.log(response.hits);
-		console.log(response.hits[0]);
-		console.log(response.hits[0].recipe.images.REGULAR.url);
-		console.log(response.hits[0].recipe.ingredientLines);
-		console.log(response.hits[0].recipe.url);
-		console.log(response.hits[0].recipe.label);
 		var data = response.hits;
-		var image = response.hits[0].recipe.images.REGULAR;
-		var ingrLines = response.hits[0].recipe.ingredientLines;
-		var recipelabel = response.hits[0].recipe;
-		displayResults(image, ingrLines, recipelabel, data);
+		displayResults(data);
 	});
 }
 
-function iterateResults(i, data) {
-	var image = data[i].recipe.images.REGULAR;
-	var ingrLines = data[i].recipe.ingredientLines;
-	var recipelabel = data[i].recipe;
-
-	$("#photo").attr("src", image.url);
-	$("#recipeName").text(recipelabel.label);
+function displayResults(data) {
+	$("#photo").attr("src", data[0].recipe.image);
+	$("#recipeName").text(data[0].recipe.label);
 
 	// Clear previous ingredient lines
 	$(".ingredients").empty();
 
-	$.each(ingrLines, function (index, line) {
-		// Append the ingredient line to the ul with class "ingredients"
-		$(".ingredients").append("<li>" + line + "</li>");
-	});
-
-	$("#maincontainer").append(
-		'<a href="' +
-			data[i].recipe.url +
-			'" target="_blank">Click Here and follow the Directions</a>'
-	);
-
-	var buttonsContainer = $("<div>")
-		.addClass("row")
-		.css("background-color", "#2d3e50");
-
-	$("button>").addClass("text-white").text("<").appendTo(buttonsContainer);
-	$("h6>").addClass("text-white").text(i).appendTo(buttonsContainer);
-	$("h6>").addClass("text-white").text("/").appendTo(buttonsContainer);
-	$("h6>")
-		.addClass("text-white")
-		.text(data.hits.length)
-		.appendTo(buttonsContainer);
-	$("button>").addClass("text-white").text(">").appendTo(buttonsContainer);
-}
-
-function displayResults(image, ingrLines, recipelabel, data) {
-	$("#photo").attr("src", image.url);
-	$("#recipeName").text(recipelabel.label);
-
-	// Check if there are no search results
-	if (ingrLines.length === 0) {
-		// $("#videoResult").html("<p>No results found.</p>");
-		return;
-	}
-
 	// Iterate through the ingredient lines and append them to the ul element
-	$.each(ingrLines, function (index, line) {
-		// Append the ingredient line to the ul with class "ingredients"
+	$.each(data[0].recipe.ingredientLines, function (index, line) {
 		$(".ingredients").append("<li>" + line + "</li>");
 	});
 
-	$("#maincontainer").append(
-		'<a href="' +
-			data[0].recipe.url +
-			'" target="_blank">Click Here and follow the Recipe Directions</a>'
-	);
-
-	$("#maincontainer").append(
-		"<h5>Use the buttons to check for other recipes</h5>"
-	);
-
-	var buttonsContainer = $("<div>").addClass(
-		"row d-flex justify-content-around align-items-center"
-	);
-	// .css("background-color", "#2d3e50");
-
-	$("<button>")
-		.addClass("col-2 btn btn-lg btn-block")
-		.attr()
-		.text("<")
-		.appendTo(buttonsContainer);
-
-	$("<h6>")
-		.addClass("pt-3 col-3")
-		.text("1 / " + data.length)
-		.appendTo(buttonsContainer);
-
-	$("<button>")
-		.addClass("col-2 btn btn-lg btn-block")
-		.attr()
-		.text(">")
-		.appendTo(buttonsContainer);
-
-	$("#maincontainer").append(buttonsContainer);
+	// Additional code for buttons and video search results
 }
 
 function saveHistory(foodInput) {
-	// Check if recentSearch array is empty
-	if (recentSearch.length === 0) {
-		// If empty, add foodInput to the array
+	// Check for duplicates
+	if (recentSearch.indexOf(foodInput) === -1) {
 		recentSearch.push(foodInput);
-	} else {
-		var isDuplicate = false;
-
-		// Loop through the array to check for duplicates
-		for (var i = 0; i < recentSearch.length; i++) {
-			// If foodInput already exists in the array, set isDuplicate to true and exit the loop
-			if (foodInput === recentSearch[i]) {
-				isDuplicate = true;
-				break;
-			}
-		}
-
-		// If foodInput does not exist in the array and isDuplicate is still false, add it to the array
-		if (!isDuplicate) {
-			recentSearch.push(foodInput);
-		}
+		recentSearch.sort();
+		localStorage.setItem("recentSearch", JSON.stringify(recentSearch));
 	}
-
-	// Sort the array alphabetically
-	recentSearch.sort();
-
-	// Store the updated array in local storage
-	localStorage.setItem("recentSearch", JSON.stringify(recentSearch));
 }
 
 function searchVideos(search) {
@@ -218,29 +114,33 @@ $("#searchButton").on("click", function (event) {
 	// Empty the ul element with class "ingredients"
 	$(".ingredients").empty();
 
-	// Function to capitalize the first letter of a string
-	function capitalizeFirstLetter(string) {
-		return string.charAt(0).toUpperCase() + string.slice(1);
-	}
-
 	// Get the food name input value and trim any whitespace and capitalize the first letter
 	var foodInput = $("#searchTerm").val().trim();
-	foodInput = capitalizeFirstLetter(foodInput);
+	foodInput = foodInput.charAt(0).toUpperCase() + foodInput.slice(1);
 	var dietInput = $("#diet").find(":selected").data("name");
 	var alergiesInput = $("#alergies").find(":selected").data("name");
 	var mealTypeInput = $("#meal-type").find(":selected").data("name");
 
+	// Save the search history
 	saveHistory(foodInput);
 
 	// Fetch recipe data for the entered food name
 	fetchData(foodInput, dietInput, alergiesInput, mealTypeInput);
+
+	// Search for related videos
 	searchVideos(foodInput);
+
+	// Clear the search term input field
 	$("#searchTerm").val("");
 });
 
 $(document).ready(function () {
 	// Set a cookie with SameSite attribute
 	document.cookie = "cookieName=cookieValue; SameSite=Lax";
+
+	// Hide the recipe videos section
 	$("#recipeVideos").css("display", "none");
+
+	// Clear the videoResult container
 	$("#videoResult").empty();
 });
