@@ -26,8 +26,6 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 	}).then(function (response) {
 		var data = response.hits;
 		displayResults(data);
-		console.log(data);
-		console.log(data[0].recipe.totalNutrients);
 	});
 }
 
@@ -56,6 +54,7 @@ function displayResults(data) {
 
 		$("#modal-body").append(h6Element);
 	});
+
 	// Additional code for buttons and video search results
 	$("#directions").attr("href", data[0].recipe.url);
 }
