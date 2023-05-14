@@ -6,14 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico"/>
-
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /> -->
-
-  <!-- jQuery BEFORE Bootstrap CSS -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" 
-    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     
-
+  <!-- jQuery BEFORE Bootstrap CSS -->
   <link rel="stylesheet" href="./assets/CSS/jquery-ui.css">
   <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap.css" >
   <!-- <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap.min.css"> 
@@ -83,10 +77,10 @@
               <input type="text" class="form-control" id="searchTerm" placeholder="Lasagne">
             </div>
             
-
+          <h5 class="form-group">optional choices:</h5>
           <div class="form-group">            
             <select class="form-control custom-select mt-1" id="diet">
-              <option selected data-name="">Diet: (optional)</option>
+              <option selected data-name="">Diet:</option>
               <option value="1" data-name="&diet=balanced">Balanced</option>
               <option value="2" data-name="&diet=high-fiber">High-fiber</option>
               <option value="3" data-name="&diet=high-protein">High-protein</option>
@@ -98,7 +92,7 @@
           
           <div class="selectWrapper form-group">  
             <select class="form-control custom-select mt-1" id="alergies">
-              <option selected data-name="">Allergies: (optional)</option>
+              <option selected data-name="">Allergies:</option>
               <option value="1" data-name="&health=alcohol-free">Alcohol-free</option>
               <option value="2" data-name="&health=celery-free">Celery-free</option>
               <option value="3" data-name="&health=dairy-free">Dairy-free</option>
@@ -119,7 +113,7 @@
           
           <div class="selectWrapper form-group">  
             <select class="form-control custom-select mt-1" id="meal-type">
-              <option selected data-name="">Meal type: (optional)</option>
+              <option selected data-name="">Meal type:</option>
               <option value="1" data-name="&mealType=breakfast">Breakfast</option>
               <option value="2" data-name="&mealType=lunch">Lunch</option>
               <option value="3" data-name="&mealType=dinner">Dinner</option>
@@ -194,5 +188,14 @@
 <script src="./assets/JS/script.js"></script>
 
 </body>
+
+<script>
+var audio = new Audio("./assets/audio/click.wav");
+var buttons = document.querySelectorAll("button");
+
+$('button').click(function() {
+  $(audio)[0].play();
+});
+</script>
 
 </html>
