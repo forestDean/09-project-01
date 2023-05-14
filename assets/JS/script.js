@@ -31,6 +31,7 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 
 function displayResults(data) {
 	$("#photo").attr("src", data[0].recipe.image);
+	console.log(data[0].recipe.image);
 	$("#recipeName").text(data[0].recipe.label);
 
 	// Clear previous ingredient lines
@@ -157,12 +158,6 @@ $("#searchButton").on("click", function (event) {
 $(document).ready(function () {
 	// Set a cookie with SameSite attribute
 	document.cookie = "cookieName=cookieValue; SameSite=Lax";
-
-	var foodInput = "Chicken";
-	var dietInput = "";
-	var alergiesInput = "";
-	var mealTypeInput = "";
-	fetchData(foodInput, dietInput, alergiesInput, mealTypeInput);
 
 	// Hide the recipe videos section
 	$("#recipeVideos").css("display", "none");
