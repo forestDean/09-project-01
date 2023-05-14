@@ -13,7 +13,7 @@
 body {
 	font-family: "Lato", sans-serif;
 	color: var(--greekBlue);
-	background-image: url(/images/johnny-africa-_ZX0S27D3fw-unsplash.jpg);
+	background-image: url(../../images/johnny-africa-_ZX0S27D3fw-unsplash.jpg);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
