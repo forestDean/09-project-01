@@ -93,6 +93,7 @@ function displayYouTubeResults(items) {
 	$("#recipeVideos").css("display", "block");
 
 	// Remove the "d-none" class from the elements
+
 	$("#nutritions").removeClass("d-none");
 	$("#directions").removeClass("d-none");
 	$("#previousButton").removeClass("d-none");
@@ -211,6 +212,8 @@ function iterateRecipes(recipeData) {
 $("#searchButton").on("click", function (event) {
 	event.preventDefault();
 
+	$("#recipeVideos").css("display", "none");
+
 	// Check if recipeData exists in local storage
 	var recipeDataExists = localStorage.getItem("recipeData") !== null;
 
@@ -222,12 +225,24 @@ $("#searchButton").on("click", function (event) {
 		$("#currentIndex").text(1);
 	}
 
-	// Empty the ul element with class "ingredients"
-	$(".ingredients").empty();
-
 	// Get the food name input value and trim any whitespace and capitalize the first letter
 	var foodInput = $("#searchTerm").val().trim();
 	foodInput = foodInput.charAt(0).toUpperCase() + foodInput.slice(1);
+
+	// Check if foodInput is empty
+	if (foodInput === "") {
+		$("#nutritions").addClass("d-none");
+		$("#directions").addClass("d-none");
+		$("#previousButton").addClass("d-none");
+		$("#currentIndex").addClass("d-none");
+		$("#totalRecipes").addClass("d-none");
+		$("#nextButton").addClass("d-none");
+		$("#slash").addClass("d-none");
+		return; // Return early if the search term is empty
+	}
+
+	// Empty the ul element with class "ingredients"
+	$(".ingredients").empty();
 	var dietInput = $("#diet").find(":selected").data("name");
 	var alergiesInput = $("#alergies").find(":selected").data("name");
 	var mealTypeInput = $("#meal-type").find(":selected").data("name");
