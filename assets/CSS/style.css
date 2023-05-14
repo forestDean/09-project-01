@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-	width: 980px;
+	width: 1000px;
 	margin-top: 20px;
 	/* border: 1px solid rgba(128, 128, 128, 0.1); */
 	background-color: #ffffffd7;
@@ -44,6 +44,10 @@ h1 {
 }
 
 /* ==================== Ingredients - photo & text ====================  */
+#leftColumn{
+/* margin-bottom: -90%; */
+border: 1px solid green;
+}
 aside {
 	margin-top: 30px;
 }
@@ -72,6 +76,9 @@ article {
 }
 
 /* ======================== Recipe Selection FORM ========================  */
+#main {
+  /* margin-top: -300px; */
+}
 form {
 	margin: 30px 0 20px;
 	border: 1px solid lightgray;
@@ -161,13 +168,19 @@ option:focus {
   /* z-index: 1 !important; */
 }
 #nutritionsDirections {
-/* border: 1px dashed red; */
+border: 1px dashed red;
 font-size: 10px !important;
 }
 
 #directions a {
 
 }
+
+#foodinfo {
+/* margin-top: -300px; */
+}
+
+
 /* =============================== Videos ===============================  */
 
 #recipeVideos {
