@@ -43,10 +43,7 @@ function displayResults(data) {
 	});
 
 	// Iterate through the nutrition info and append them to the modal body
-	var totalNutrients = data[0].recipe.totalNutrients;
-	console.log(totalNutrients);
-
-	$.each(totalNutrients, function (key, nutrient) {
+	$.each(data[0].recipe.totalNutrients, function (key, nutrient) {
 		var label = nutrient.label;
 		var quantity = nutrient.quantity.toFixed(2);
 		var unit = nutrient.unit;
