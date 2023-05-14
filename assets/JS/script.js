@@ -27,6 +27,7 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 		var data = response.hits;
 		displayResults(data);
 		console.log(data);
+		console.log(data[0].recipe.totalNutrients);
 	});
 }
 
@@ -43,10 +44,18 @@ function displayResults(data) {
 	});
 
 	// Iterate through the nutrition info and append them to the modal body
-	$.each(data[0].recipe.ingredientLines, function (index, line) {
-		$(".ingredients").append("<li>" + line + "</li>");
-	});
+	var totalNutrients = data[0].recipe.totalNutrients;
+	console.log(totalNutrients);
 
+	$.each(totalNutrients, function (key, nutrient) {
+		var label = nutrient.label;
+		var quantity = nutrient.quantity.toFixed(2);
+		var unit = nutrient.unit;
+
+		var h6Element = $("<h6>").text(label + ": " + quantity + " " + unit);
+
+		$("#modal-body").append(h6Element);
+	});
 	// Additional code for buttons and video search results
 	$("#directions").attr("href", data[0].recipe.url);
 }
