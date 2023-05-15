@@ -46,7 +46,7 @@ h1 {
 /* ==================== Ingredients - photo & text ====================  */
 #leftColumn{
 /* margin-bottom: -90%; */
-border: 1px solid green;
+/* border: 1px solid green; */
 }
 aside {
 	margin-top: 30px;
@@ -135,10 +135,6 @@ option:focus {
 	color: var(--greekBlue);
 }
 
-.dropdown-content li.active,
-.dropdown-content li:hover {
-	background-color: red;
-}
 
 .btn {
 	outline: solid 1px #fff;
@@ -169,7 +165,7 @@ option:focus {
 }
 
 #nutritionsDirections {
-border: 1px dashed red;
+/* border: 1px dashed red; */
 font-size: 10px !important;
 }
 
@@ -259,13 +255,16 @@ No media query since this is the default in Bootstrap */
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
+    #foodinfo {
+margin-top: 0;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    #foodinfo{
-        margin-top: 0px !important;
-      }
+    #foodinfo {
+        margin-top: 0;
+            }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -281,6 +280,10 @@ No media query since this is the default in Bootstrap */
 		height: 60px;
 		font-size: 20px;
 	}
+
+    #foodinfo {
+
+    }
 
 }
 
