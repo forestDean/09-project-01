@@ -26,7 +26,6 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 	}).then(function (response) {
 		var data = response.hits;
 		displayResults(data);
-		marginCalc();
 	});
 }
 
@@ -59,6 +58,9 @@ function displayResults(data) {
 
 	// Additional code for buttons and video search results
 	$("#directions").attr("href", data[0].recipe.url);
+
+	// Calculate button margin-top
+	marginCalc();
 }
 
 function saveHistory(foodInput) {
