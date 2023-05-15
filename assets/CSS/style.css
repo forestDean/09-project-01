@@ -73,6 +73,7 @@ article {
 
 #ulIngredients li {
 	margin-bottom: 10px;
+	font-size: large;
 }
 
 /* ======================== Recipe Selection FORM ========================  */
@@ -246,6 +247,14 @@ footer a {
 	font-family: "Lobster", "Georgia", serif;
 }
 
+#nextButton {
+	margin-bottom: 15px !important;
+}
+
+#foodinfo {
+	background-color: rgba(255, 255, 255, 0.178);
+}
+
 /* ======================== RESPONSIVE MEDIA QUERIES ======================== */
 
 /* Extra small devices (portrait phones, less than 576px)
@@ -259,6 +268,9 @@ No media query since this is the default in Bootstrap */
 	#directions {
 		font-size: 27px;
 	}
+	.btn {
+		height: 70px !important;
+	}
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -267,8 +279,16 @@ No media query since this is the default in Bootstrap */
 		margin-top: 0;
 	}
 
+	#indexIterate,
+	#nextButton {
+		width: 50% !important;
+	}
 	#nutritions,
 	#directions {
+		font-size: 33px;
+	}
+
+	.btn {
 		font-size: 33px;
 	}
 }
@@ -295,8 +315,8 @@ No media query since this is the default in Bootstrap */
 	}
 
 	.btn {
-		height: 60px;
-		font-size: 20px;
+		height: 70px;
+		font-size: 33px;
 	}
 }
 

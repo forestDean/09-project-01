@@ -63,9 +63,6 @@ function displayResults(data) {
 
 		$("#modal-body").append(h6Element);
 	});
-
-	// Additional code for buttons and video search results
-	$("#directions").attr("href", data[0].recipe.url);
 }
 
 function saveHistory(foodInput) {
@@ -75,6 +72,87 @@ function saveHistory(foodInput) {
 		recentSearch.sort();
 		localStorage.setItem("recentSearch", JSON.stringify(recentSearch));
 	}
+}
+
+function iterateRecipes(recipeData) {
+	// Retrieve recipe data from local storage
+	var recipeData = JSON.parse(localStorage.getItem("recipeData"));
+
+	// Set the total number of recipes
+	var totalRecipes = recipeData.length;
+	$("#totalRecipes").text(totalRecipes);
+
+	// Initialize the current index
+	var currentIndex = 0;
+	$("#currentIndex").text(currentIndex + 1);
+
+	// Function to display recipe data at the current index
+	function displayRecipeData(index) {
+		var recipe = recipeData[index];
+
+		// Display the recipe information
+		$("#photo").attr("src", recipe.recipe.image);
+		$("#recipeName").text(recipe.recipe.label);
+
+		// Clear previous ingredient lines
+		$(".ingredients").empty();
+
+		// Iterate through the ingredient lines and append them to the ul element
+		$.each(recipe.recipe.ingredientLines, function (index, line) {
+			$(".ingredients").append("<li>" + line + "</li>");
+		});
+
+		// Clear the modal body
+		$("#modal-body").empty();
+
+		// Iterate through the nutrition info and append them to the modal body
+		$.each(recipe.recipe.totalNutrients, function (key, nutrient) {
+			var label = nutrient.label;
+			var quantity = nutrient.quantity.toFixed(2);
+			var unit = nutrient.unit;
+
+			var h6Element = $("<h6>").text(label + ": " + quantity + " " + unit);
+
+			$("#modal-body").append(h6Element);
+		});
+
+		// Update the "Directions" button click event listener
+		$("#directions")
+			.off("click")
+			.on("click", function () {
+				openRecipeUrl(recipe.recipe.url);
+			});
+	}
+
+	// Function to update the current index display
+	function updateCurrentIndexDisplay() {
+		$("#currentIndex").text(currentIndex + 1);
+	}
+
+	// Event listener for the previous button
+	$("#previousButton").on("click", function () {
+		if (currentIndex > 0) {
+			currentIndex--;
+			displayRecipeData(currentIndex);
+			updateCurrentIndexDisplay();
+		}
+	});
+
+	// Event listener for the next button
+	$("#nextButton").on("click", function () {
+		if (currentIndex < totalRecipes - 1) {
+			currentIndex++;
+			displayRecipeData(currentIndex);
+			updateCurrentIndexDisplay();
+		}
+	});
+
+	// Display the initial recipe data
+	displayRecipeData(currentIndex);
+}
+
+function openRecipeUrl(url) {
+	window.open(url, "_blank");
 }
 
 function searchVideos(search) {
@@ -143,79 +221,6 @@ function displayYouTubeResults(items) {
 	});
 }
 
-function iterateRecipes(recipeData) {
-	// Retrieve recipe data from local storage
-	var recipeData = JSON.parse(localStorage.getItem("recipeData"));
-
-	// Set the total number of recipes
-	var totalRecipes = recipeData.length;
-	$("#totalRecipes").text(totalRecipes);
-
-	// Initialize the current index
-	var currentIndex = 0;
-	$("#currentIndex").text(currentIndex + 1);
-
-	// Function to display recipe data at the current index
-	function displayRecipeData(index) {
-		var recipe = recipeData[index];
-
-		// Display the recipe information
-		$("#photo").attr("src", recipe.recipe.image);
-		$("#recipeName").text(recipe.recipe.label);
-
-		// Clear previous ingredient lines
-		$(".ingredients").empty();
-
-		// Iterate through the ingredient lines and append them to the ul element
-		$.each(recipe.recipe.ingredientLines, function (index, line) {
-			$(".ingredients").append("<li>" + line + "</li>");
-		});
-
-		// Clear the modal body
-		$("#modal-body").empty();
-
-		// Iterate through the nutrition info and append them to the modal body
-		$.each(recipe.recipe.totalNutrients, function (key, nutrient) {
-			var label = nutrient.label;
-			var quantity = nutrient.quantity.toFixed(2);
-			var unit = nutrient.unit;
-
-			var h6Element = $("<h6>").text(label + ": " + quantity + " " + unit);
-
-			$("#modal-body").append(h6Element);
-		});
-
-		// Update the "Directions" button link
-		$("#directions").attr("href", recipe.recipe.url);
-	}
-
-	// Function to update the current index display
-	function updateCurrentIndexDisplay() {
-		$("#currentIndex").text(currentIndex + 1);
-	}
-
-	// Event listener for the previous button
-	$("#previousButton").on("click", function () {
-		if (currentIndex > 0) {
-			currentIndex--;
-			displayRecipeData(currentIndex);
-			updateCurrentIndexDisplay();
-		}
-	});
-
-	// Event listener for the next button
-	$("#nextButton").on("click", function () {
-		if (currentIndex < totalRecipes - 1) {
-			currentIndex++;
-			displayRecipeData(currentIndex);
-			updateCurrentIndexDisplay();
-		}
-	});
-
-	// Display the initial recipe data
-	displayRecipeData(currentIndex);
-}
-
 $("#searchButton").on("click", function (event) {
 	event.preventDefault();
 
@@ -267,6 +272,11 @@ $("#searchButton").on("click", function (event) {
 	$("#searchTerm").val("");
 });
 
+$("#directions").on("click", function (index) {
+	var url = recipeData[index].recipe.url;
+	window.open(url, "_blank");
+});
+
 $(document).ready(function () {
 	function adjustElementsOnScreenSize() {
 		var directionsButton = $("#directions");
@@ -276,8 +286,8 @@ $(document).ready(function () {
 			directionsButton.addClass("mt-2");
 			directionsButton.removeClass("btn-lg");
 		} else if ($(window).width() <= 768) {
-			directionsButton.addClass("w-25");
-			nutritionsButton.addClass("w-25");
+			directionsButton.css("height", "70px");
+			nutritionsButton.css("height", "70px");
 		} else if ($(window).width() <= 451) {
 			directionsButton.addClass("mt-2");
 			nutritionsButton.addClass("pb-4");

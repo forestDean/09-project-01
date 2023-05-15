@@ -120,7 +120,7 @@
           </div>
           
           <div class="row form-group mt-4">
-              <div class="col-12"><button id="searchButton" type="button" class="btn btn-lg btn-block mb-4 mt-4 mt-lg-1">Search</button></div>
+              <div class="col-12"><button id="searchButton" type="button" class="btn btn-lg pb-2 btn-block mb-4 mt-4 mt-lg-1">Search</button></div>
             </div>
           </form>
 
@@ -128,10 +128,10 @@
         </div>
         <div id="recipeDataContainer" class="d-flex flex-column align-items-center justify-content-around">
           <button id="previousButton" class="btn btn-block d-none mb-3 w-50">Previous</button>
-          <div id="indexIterate" class="d-flex justify-content-between">
+          <div id="indexIterate" class="d-flex justify-content-center">
             <h6 id="currentIndex" class="d-none  p-1 m-2 rounded"></h6>
             <h6 id="slash" class="d-none p-1 m-2 rounded">/</h6>
-            <h6 id="totalRecipes" class="d-none p-1 m-2 rounded"></h6>
+            <h6 id="totalRecipes" class="d-none p-1 m-2 rounded mb-4"></h6>
           </div>
           <button id="nextButton" class="btn btn-block d-none mt-3 w-50">Next</button>
         </div>
@@ -142,7 +142,7 @@
       
           
         <!-- ============================= NEW DIV ============================= -->    
-        <section id="foodinfo" class="container d-lg-flex col-lg-6 col-md-7 order-3 justify-content-center align-items-center">
+        <section id="foodinfo" class="container d-lg-flex col-lg-6 col-md-7 order-3 justify-content-center align-items-center d-none">
           <div class="col-12 text-center">
             <button id="nutritions" type="button" class="btn btn-block  pt-0 pb-0" data-toggle="modal" data-target="#myModal">Nutritional information</button>
           </div>
