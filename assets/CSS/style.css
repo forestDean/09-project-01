@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-	width: 1000px;
+	/* width: 1000px; */
 	margin-top: 20px;
 	/* border: 1px solid rgba(128, 128, 128, 0.1); */
 	background-color: #ffffffd7;
@@ -44,9 +44,9 @@ h1 {
 }
 
 /* ==================== Ingredients - photo & text ====================  */
-#leftColumn{
-/* margin-bottom: -90%; */
-/* border: 1px solid green; */
+#leftColumn {
+	/* margin-bottom: -90%; */
+	/* border: 1px solid green; */
 }
 aside {
 	margin-top: 30px;
@@ -77,7 +77,6 @@ article {
 
 /* ======================== Recipe Selection FORM ========================  */
 #main {
-
 }
 form {
 	margin: 30px 0 20px;
@@ -135,7 +134,6 @@ option:focus {
 	color: var(--greekBlue);
 }
 
-
 .btn {
 	outline: solid 1px #fff;
 	outline-offset: -5px;
@@ -160,23 +158,14 @@ option:focus {
 }
 
 /* ========================== Recipe Directions ==========================  */
-#foodinfo{
-
-}
 
 #nutritionsDirections {
-/* border: 1px dashed red; */
-font-size: 10px !important;
+	/* border: 1px dashed red; */
+	font-size: 10px !important;
 }
 
 #directions a {
-
 }
-
-#foodinfo {
-
-}
-
 
 /* =============================== Videos ===============================  */
 
@@ -248,23 +237,52 @@ footer a {
 	font-weight: bold;
 }
 
+#currentIndex,
+#slash,
+#totalRecipes {
+	text-align: center;
+	color: var(--greekBlue);
+	font-size: 30px;
+	font-family: "Lobster", "Georgia", serif;
+}
+
 /* ======================== RESPONSIVE MEDIA QUERIES ======================== */
 
 /* Extra small devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap */
+@media (max-width: 460px) {
+	#foodinfo {
+		margin-top: 0;
+	}
+
+	#nutritions,
+	#directions {
+		font-size: 27px;
+	}
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-    #foodinfo {
-margin-top: 0;
-    }
+	#foodinfo {
+		margin-top: 0;
+	}
+
+	#nutritions,
+	#directions {
+		font-size: 33px;
+	}
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    #foodinfo {
-        margin-top: 0;
-            }
+	#foodinfo {
+		margin-top: 0;
+	}
+
+	#nutritions,
+	#directions {
+		font-size: 33px;
+	}
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -280,11 +298,6 @@ margin-top: 0;
 		height: 60px;
 		font-size: 20px;
 	}
-
-    #foodinfo {
-
-    }
-
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

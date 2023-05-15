@@ -1,6 +1,13 @@
 // Initialize recentSearch array from localStorage
 var recentSearch = JSON.parse(localStorage.getItem("recentSearch")) || [];
 
+var audio = new Audio("./assets/audio/click.wav");
+var buttons = document.querySelectorAll("button");
+
+$("button").click(function () {
+	$(audio)[0].play();
+});
+
 $(function () {
 	// Set up autocomplete for the search input
 	$("#searchTerm").autocomplete({
@@ -57,13 +64,8 @@ function displayResults(data) {
 		$("#modal-body").append(h6Element);
 	});
 
-	// Calculate button margin-top
-	marginCalc();
-
 	// Additional code for buttons and video search results
 	$("#directions").attr("href", data[0].recipe.url);
-
-
 }
 
 function saveHistory(foodInput) {
@@ -99,8 +101,7 @@ function displayYouTubeResults(items) {
 
 	// Remove the "d-none" class from the elements
 
-	$("#nutritions").removeClass("d-none");
-	$("#directions").removeClass("d-none");
+	$("#foodinfo").removeClass("d-none");
 	$("#previousButton").removeClass("d-none");
 	$("#currentIndex").removeClass("d-none");
 	$("#totalRecipes").removeClass("d-none");
@@ -267,6 +268,33 @@ $("#searchButton").on("click", function (event) {
 });
 
 $(document).ready(function () {
+	function adjustElementsOnScreenSize() {
+		var directionsButton = $("#directions");
+		var nutritionsButton = $("#nutritions");
+
+		if ($(window).width() <= 992) {
+			directionsButton.addClass("mt-2");
+			directionsButton.removeClass("btn-lg");
+		} else if ($(window).width() <= 768) {
+			directionsButton.addClass("w-25");
+			nutritionsButton.addClass("w-25");
+		} else if ($(window).width() <= 451) {
+			directionsButton.addClass("mt-2");
+			nutritionsButton.addClass("pb-4");
+			directionsButton.removeClass("btn-lg");
+		} else {
+			directionsButton.removeClass("mt-2");
+		}
+	}
+
+	// Initial adjustment on page load
+	adjustElementsOnScreenSize();
+
+	// Adjust on window resize
+	$(window).resize(function () {
+		adjustElementsOnScreenSize();
+	});
+
 	// Set a cookie with SameSite attribute
 	document.cookie = "cookieName=cookieValue; SameSite=Lax";
 
