@@ -164,8 +164,9 @@ option:focus {
 }
 
 /* ========================== Recipe Directions ==========================  */
-#infoRow {
+#foodinfo{
   /* z-index: 1 !important; */
+  margin-top: -300px !important;
 }
 #nutritionsDirections {
 border: 1px dashed red;

@@ -26,6 +26,7 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 	}).then(function (response) {
 		var data = response.hits;
 		displayResults(data);
+		marginCalc();
 	});
 }
 
