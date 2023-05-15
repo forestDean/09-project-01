@@ -133,7 +133,7 @@
       
           
         <!-- ============================= NEW DIV ============================= -->    
-      <section id="foodinfo" class="col-md-12 col-lg-7 order-3 pl-3 ml-lg-auto">        
+      <section id="foodinfo" class="col-md-12 col-lg-7 order-3 pl-3 ml-lg-auto d-none">        
         <div id="nutritionsDirections" class="mr-lg-4 form-group">
           <!-- Trigger the modal with a button -->
           <button id="nutritions" type="button" class="btn btn-lg btn-block mb-4 mt-5" data-toggle="modal" data-target="#myModal">Nutritional information</button>
@@ -226,17 +226,18 @@ $('button').click(function() {
 function marginCalc() {
     var width = $(window).width();
     console.log("width: " + width)
-    //if( width >= 992 ) {
+    if( width >= 992 ) {
         var stretch = $(leftColumn).height();
         console.log(stretch);
 
         var margin = (stretch - 555) *-1;
+        margin = margin.toFixed();
         console.log(margin);
-        $('#foodinfo').css("margin-top", margin + "px");
-       // $('#foodinfo').addClass("d-block");
-   // }
+        $('#foodinfo').css("marginTop", margin + "px");   
+    }
+    $('#foodinfo').addClass("d-block");
 }    
-marginCalc();
+//marginCalc();
 
 
 </script>

@@ -56,11 +56,13 @@ function displayResults(data) {
 		$("#modal-body").append(h6Element);
 	});
 
+	// Calculate button margin-top
+	marginCalc();
+
 	// Additional code for buttons and video search results
 	$("#directions").attr("href", data[0].recipe.url);
 
-	// Calculate button margin-top
-	marginCalc();
+
 }
 
 function saveHistory(foodInput) {
