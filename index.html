@@ -10,11 +10,11 @@
   <!-- jQuery BEFORE Bootstrap CSS -->
   <link rel="stylesheet" href="./assets/CSS/jquery-ui.css">
   <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap.css" >
-  <!-- <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap.min.css"> 
   <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-grid.css"> 
   <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-grid.min.css"> 
   <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-reboot.css" >
-  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-reboot.min.css" > -->
+  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-reboot.min.css" >
   <link rel="stylesheet" href="./assets/CSS/style.css" />
   
   <title>CLook</title>
@@ -40,14 +40,14 @@
       
       <div class="row d-flex flex-row ">
         
-          <div id="leftColumn" class="col-md-12 col-lg-5 order-2 order-lg-1 align-self-start">
-            <aside class="text-center text-lg-left ml-2" id="recipe-container">
+        <div id="leftColumn" class="col-md-12 col-lg-7 order-2 order-lg-1 align-self-start">
+          <aside class="text-center text-lg-left ml-2 align-items-center justify-content-around" id="recipe-container">
             
-            <img id="photo" src="./images/chicken-vesuvio.png" class="rounded ml-md-3" alt="recipe image" width="300px" height="300px">
-            
-            <article class="text-lg-left pl-2 pr-3 mt-2 ml-4">       
-              <h5 class="ml-lg-0">Ingredients for:</h5>
-              <h2 class="mb-2" id="recipeName">Chicken Vesuvio</h2>         
+            <img id="photo" src="./images/chicken-vesuvio.png" class="rounded ml-md-3" alt="recipe image" width="300px" height="300px"> 
+    
+            <article class="text-lg-left align-items-center pl-2 pr-3 mt-2 ml-4">       
+             <h5 class="ml-lg-0">Ingredients for:</h5> 
+             <h2 class="mb-2" id="recipeName">Chicken Vesuvio</h2>         
               <ul class="ingredients mt-3" id="ulIngredients">
                 <li class="ingredients">1/2 cup olive oil</li>
                 <li class="ingredients">5 cloves garlic, peeled</li>
@@ -65,7 +65,7 @@
         </div>
       
       
-        <main class="col-md-12 col-lg-7 order-1 order-lg-2 pl-3">
+        <main class="col-md-12 col-lg-5 order-1 order-lg-2 pl-3">
           <div id="maincontainer"> 
             <form class="mr-lg-4">
               <div class="formhead pl-lg-4 mb-3 py-1 text-center text-lg-left">
@@ -120,26 +120,37 @@
           </div>
           
           <div class="row form-group mt-4">
-              <div class="col-12"><button id="searchButton" type="button" class="btn btn-lg btn-block mb-4 mt-4 mt-lg-1">Search</button></div>
+              <div class="col-12"><button id="searchButton" type="button" class="btn btn-lg pb-2 btn-block mb-4 mt-4 mt-lg-1">Search</button></div>
             </div>
           </form>
 
         <!-- end of maincontainer -->
         </div>
-
+        <div id="recipeDataContainer" class="d-flex flex-column align-items-center justify-content-around">
+          <button id="previousButton" class="btn btn-block d-none mb-3 w-50">Previous</button>
+          <div id="indexIterate" class="d-flex justify-content-center">
+            <h6 id="currentIndex" class="d-none  p-1 m-2 rounded"></h6>
+            <h6 id="slash" class="d-none p-1 m-2 rounded">/</h6>
+            <h6 id="totalRecipes" class="d-none p-1 m-2 rounded mb-4"></h6>
+          </div>
+          <button id="nextButton" class="btn btn-block d-none mt-3 w-50">Next</button>
+        </div>
+        
        <!-- end of main --> 
       </main>
 
       
           
         <!-- ============================= NEW DIV ============================= -->    
-      <section id="foodinfo" class="col-md-12 col-lg-7 order-3 pl-3 ml-lg-auto d-none">        
-        <div id="nutritionsDirections" class="mr-lg-4 form-group">
-          <!-- Trigger the modal with a button -->
-          <button id="nutritions" type="button" class="btn btn-lg btn-block mb-4 mt-5" data-toggle="modal" data-target="#myModal">Nutritional information</button>
-          <a href="#" id="directions" target="_blank" class="btn btn-lg btn-block d-flex justify-content-center align-items-center">Cooking Instructions</a>
-        </div>
-      </section>
+        <section id="foodinfo" class="container d-lg-flex col-lg-6 col-md-7 order-3 justify-content-center align-items-center d-none">
+          <div class="col-12 text-center">
+            <button id="nutritions" type="button" class="btn btn-block  pt-0 pb-0" data-toggle="modal" data-target="#myModal">Nutritional information</button>
+          </div>
+          <div class="col-12 text-center">
+            <button id="directions" target="_blank" class="btn btn-block pt-0 pb-0">Cooking Instructions</button>
+          </div>
+        </section>
+
 
       <!-- end of row --> 
     </div>
@@ -156,14 +167,14 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Recipe nutrition information</h4>
+                <button type="button" class="close m-0 p-0 pt-2" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title  pr-5 mr-5">Recipe nutrition information</h4>
               </div>
-              <div id="modal-body" class="modal-body">
+              <div id="modal-body" class="modal-body d-flex flex-column align-items-center">
                 
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <div class="modal-footer d-flex justify-content-center">
+                <button type="button" class="btn btn-default pl-5 pr-5 " data-dismiss="modal">Close</button>
               </div>
             </div>
             
@@ -213,33 +224,5 @@
 <script src="./assets/JS/script.js"></script>
 
 </body>
-
-<script>
-var audio = new Audio("./assets/audio/click.wav");
-var buttons = document.querySelectorAll("button");
-
-$('button').click(function() {
-  $(audio)[0].play();
-  
-});
-
-function marginCalc() {
-    var width = $(window).width();
-    console.log("width: " + width)
-    if( width >= 992 ) {
-        var stretch = $(leftColumn).height();
-        console.log(stretch);
-
-        var margin = (stretch - 555) *-1;
-        margin = margin.toFixed();
-        console.log(margin);
-        $('#foodinfo').css("marginTop", margin + "px");   
-    }
-    $('#foodinfo').addClass("d-block");
-}    
-//marginCalc();
-
-
-</script>
 
 </html>
