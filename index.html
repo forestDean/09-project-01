@@ -218,25 +218,7 @@
 var audio = new Audio("./assets/audio/click.wav");
 var buttons = document.querySelectorAll("button");
 
-$('button').click(function() {
-  $(audio)[0].play();
-  
-});
 
-function marginCalc() {
-    var width = $(window).width();
-    console.log("width: " + width)
-    if( width >= 992 ) {
-        var stretch = $(leftColumn).height();
-        console.log(stretch);
-
-        var margin = (stretch - 555) *-1;
-        margin = margin.toFixed();
-        console.log(margin);
-        $('#foodinfo').css("marginTop", margin + "px");   
-    }
-    $('#foodinfo').addClass("d-block");
-}    
 //marginCalc();
 
 

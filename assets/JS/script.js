@@ -61,8 +61,6 @@ function displayResults(data) {
 
 	// Additional code for buttons and video search results
 	$("#directions").attr("href", data[0].recipe.url);
-
-
 }
 
 function saveHistory(foodInput) {
@@ -134,6 +132,21 @@ function displayYouTubeResults(items) {
 	});
 }
 
+function marginCalc() {
+	var width = $(window).width();
+	console.log("width: " + width);
+	if (width >= 992) {
+		var stretch = $(leftColumn).height();
+		console.log(stretch);
+
+		var margin = (stretch - 555) * -1;
+		margin = margin.toFixed();
+		console.log(margin);
+		$("#foodinfo").css("marginTop", margin + "px");
+	}
+	$("#foodinfo").addClass("d-block");
+}
+
 $("#searchButton").on("click", function (event) {
 	event.preventDefault();
 	// Empty the ul element with class "ingredients"
@@ -168,4 +181,8 @@ $(document).ready(function () {
 
 	// Clear the videoResult container
 	$("#videoResult").empty();
+});
+
+$("button").click(function () {
+	$(audio)[0].play();
 });
