@@ -1,6 +1,9 @@
 // Initialize recentSearch array from localStorage
 var recentSearch = JSON.parse(localStorage.getItem("recentSearch")) || [];
 
+var audio = new Audio("./assets/audio/click.wav");
+var buttons = document.querySelectorAll("button");
+
 $(function () {
 	// Set up autocomplete for the search input
 	$("#searchTerm").autocomplete({
