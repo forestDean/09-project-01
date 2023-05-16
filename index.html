@@ -156,14 +156,14 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Recipe nutrition information</h4>
+                <button type="button" class="close m-0 p-0 pt-2" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title  pr-5 mr-5">Recipe nutrition information</h4>
               </div>
-              <div id="modal-body" class="modal-body">
+              <div id="modal-body" class="modal-body d-flex flex-column align-items-center">
                 
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <div class="modal-footer d-flex justify-content-center">
+                <button type="button" class="btn btn-default pl-5 pr-5 " data-dismiss="modal">Close</button>
               </div>
             </div>
             
@@ -218,25 +218,7 @@
 var audio = new Audio("./assets/audio/click.wav");
 var buttons = document.querySelectorAll("button");
 
-$('button').click(function() {
-  $(audio)[0].play();
-  
-});
 
-function marginCalc() {
-    var width = $(window).width();
-    console.log("width: " + width)
-    if( width >= 992 ) {
-        var stretch = $(leftColumn).height();
-        console.log(stretch);
-
-        var margin = (stretch - 555) *-1;
-        margin = margin.toFixed();
-        console.log(margin);
-        $('#foodinfo').css("marginTop", margin + "px");   
-    }
-    $('#foodinfo').addClass("d-block");
-}    
 //marginCalc();
 
 
