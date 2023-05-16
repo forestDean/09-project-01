@@ -99,7 +99,7 @@ function displayYouTubeResults(items) {
 
 	// Remove the "d-none" class from the elements
 	$("#nutritions").removeClass("d-none");
-	$("#directions").removeClass("d-none");
+	$("#directions").addClass("d-flex");
 
 	// Clear the videoResult container
 	$("#videoResult").empty();
@@ -150,17 +150,27 @@ function marginCalc() {
 	$("#foodinfo").addClass("d-block");
 }
 
-$("#searchButton").on("click", function (event) {
-	event.preventDefault();
-	// Empty the ul element with class "ingredients"
-	$(".ingredients").empty();
+function addDnoneClass() {
+	$("#nutritions").addClass("d-none");
+	$("#directions").removeClass("d-flex");
+	$("#recipeVideos").css("display", "none");
+}
 
+function getInfo() {
 	// Get the food name input value and trim any whitespace and capitalize the first letter
 	var foodInput = $("#searchTerm").val().trim();
 	foodInput = foodInput.charAt(0).toUpperCase() + foodInput.slice(1);
 	var dietInput = $("#diet").find(":selected").data("name");
 	var alergiesInput = $("#alergies").find(":selected").data("name");
 	var mealTypeInput = $("#meal-type").find(":selected").data("name");
+
+	if (foodInput == "") {
+		addDnoneClass();
+		return;
+	}
+
+	// Empty the ul element with class "ingredients"
+	$(".ingredients").empty();
 
 	// Save the search history
 	saveHistory(foodInput);
@@ -173,6 +183,24 @@ $("#searchButton").on("click", function (event) {
 
 	// Clear the search term input field
 	$("#searchTerm").val("");
+}
+
+$("#searchTerm").on("keydown", function (event) {
+	console.log("triggered");
+	if (event.keyCode === 13) {
+		event.preventDefault();
+		console.log("triggered222222");
+
+		getInfo();
+	}
+});
+
+$("#searchButton").on("click", function (event) {
+	event.preventDefault();
+
+	console.log("search trigger");
+
+	getInfo();
 });
 
 $(document).ready(function () {
