@@ -10,11 +10,6 @@
   <!-- jQuery BEFORE Bootstrap CSS -->
   <link rel="stylesheet" href="./assets/CSS/jquery-ui.css">
   <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap.css" >
-  <!-- <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap.min.css"> 
-  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-grid.css"> 
-  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-grid.min.css"> 
-  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-reboot.css" >
-  <link rel="stylesheet" href="./assets/bootstrap-4.6.2-dist/css/bootstrap-reboot.min.css" > -->
   <link rel="stylesheet" href="./assets/CSS/style.css" />
   
   <title>CLook</title>
@@ -27,21 +22,21 @@
     
     <div id="header" class="row header align-items-center px-2 py-3 rounded text-white">
       <div class="col-2 text-center my-auto font-italic">
-       <span>estd.<br>2023</span>
+        <span>estd.<br>2023</span>
       </div>
 
-        <div class="col-8 py-auto">
-          <h1 id="one">CLook</h1>
-        </div> 
+      <div class="col-8 py-auto">
+        <h1 id="one">CLook</h1>
+      </div> 
 
-        <div class="col-2">
+      <div class="col-2">
         </div> 
       </div> 
       
       <div class="row d-flex flex-row ">
         
-          <div id="leftColumn" class="col-md-12 col-lg-5 order-2 order-lg-1 align-self-start">
-            <aside class="text-center text-lg-left ml-2" id="recipe-container">
+        <div id="leftColumn" class="col-md-12 col-lg-5 order-2 order-lg-1 align-self-start">
+          <aside class="text-center text-lg-left ml-2" id="recipe-container">
             
             <img id="photo" src="./images/chicken-vesuvio.png" class="rounded ml-md-3" alt="recipe image" width="300px" height="300px">
             
@@ -76,53 +71,53 @@
                 <input type="text" class="form-control" id="searchTerm" placeholder="Chicken">
               </div>
               
-            <h5 class="form-group">optional choices:</h5>
-            <div class="form-group">            
-              <select class="form-control custom-select mt-1" id="diet">
-                <option selected data-name="">Diet:</option>
-                <option value="1" data-name="&diet=balanced">Balanced</option>
-                <option value="2" data-name="&diet=high-fiber">High-fiber</option>
-                <option value="3" data-name="&diet=high-protein">High-protein</option>
-                <option value="4" data-name="&diet=low-carb">Low-carb</option>
-                <option value="5" data-name="&diet=low-fat">Low-fat</option>
-                <option value="6" data-name="&diet=low-sodium">Low-sodium</option>
-              </select>
-            </div>
+              <h5 class="form-group">optional choices:</h5>
+              <div class="form-group">            
+                <select class="form-control custom-select mt-1" id="diet">
+                  <option selected data-name="">Diet:</option>
+                  <option value="1" data-name="&diet=balanced">Balanced</option>
+                  <option value="2" data-name="&diet=high-fiber">High-fiber</option>
+                  <option value="3" data-name="&diet=high-protein">High-protein</option>
+                  <option value="4" data-name="&diet=low-carb">Low-carb</option>
+                  <option value="5" data-name="&diet=low-fat">Low-fat</option>
+                  <option value="6" data-name="&diet=low-sodium">Low-sodium</option>
+                </select>
+              </div>
           
-          <div class="selectWrapper form-group">  
-            <select class="form-control custom-select mt-1" id="alergies">
-              <option selected data-name="">Allergies:</option>
-              <option value="1" data-name="&health=alcohol-free">Alcohol-free</option>
-              <option value="2" data-name="&health=celery-free">Celery-free</option>
-              <option value="3" data-name="&health=dairy-free">Dairy-free</option>
-              <option value="4" data-name="&health=egg-free">Egg-free</option>
-              <option value="5" data-name="&health=fish-free">Fish-free</option>
-              <option value="6" data-name="&health=gluten-free">Gluten-free</option>
-              <option value="7" data-name="&health=peanut-free">Peanut-free</option>
-              <option value="8" data-name="&health=pork-free">Pork-free</option>
-              <option value="9" data-name="&health=red-meat-free">Red-meat-free</option>
-              <option value="10" data-name="&health=sesame-free">Sesame-free</option>
-              <option value="11" data-name="&health=soy-free">Soy-free</option>
-              <option value="12" data-name="&health=no-oil-added">No-oil-added</option>
-              <option value="13" data-name="&health=pescatarian">Pescatarian</option>
-              <option value="15" data-name="&health=vegan">Vegan</option>
-              <option value="16" data-name="&health=vegetarian">Vegetarian</option>
-            </select>
-          </div>
+              <div class="selectWrapper form-group">  
+                <select class="form-control custom-select mt-1" id="alergies">
+                  <option selected data-name="">Allergies:</option>
+                  <option value="1" data-name="&health=alcohol-free">Alcohol-free</option>
+                  <option value="2" data-name="&health=celery-free">Celery-free</option>
+                  <option value="3" data-name="&health=dairy-free">Dairy-free</option>
+                  <option value="4" data-name="&health=egg-free">Egg-free</option>
+                  <option value="5" data-name="&health=fish-free">Fish-free</option>
+                  <option value="6" data-name="&health=gluten-free">Gluten-free</option>
+                  <option value="7" data-name="&health=peanut-free">Peanut-free</option>
+                  <option value="8" data-name="&health=pork-free">Pork-free</option>
+                  <option value="9" data-name="&health=red-meat-free">Red-meat-free</option>
+                  <option value="10" data-name="&health=sesame-free">Sesame-free</option>
+                  <option value="11" data-name="&health=soy-free">Soy-free</option>
+                  <option value="12" data-name="&health=no-oil-added">No-oil-added</option>
+                  <option value="13" data-name="&health=pescatarian">Pescatarian</option>
+                  <option value="15" data-name="&health=vegan">Vegan</option>
+                  <option value="16" data-name="&health=vegetarian">Vegetarian</option>
+                </select>
+              </div>
           
-          <div class="selectWrapper form-group">  
-            <select class="form-control custom-select mt-1" id="meal-type">
-              <option selected data-name="">Meal type:</option>
-              <option value="1" data-name="&mealType=breakfast">Breakfast</option>
-              <option value="2" data-name="&mealType=lunch">Lunch</option>
-              <option value="3" data-name="&mealType=dinner">Dinner</option>
-            </select>
-          </div>
+              <div class="selectWrapper form-group">  
+                <select class="form-control custom-select mt-1" id="meal-type">
+                  <option selected data-name="">Meal type:</option>
+                  <option value="1" data-name="&mealType=breakfast">Breakfast</option>
+                  <option value="2" data-name="&mealType=lunch">Lunch</option>
+                  <option value="3" data-name="&mealType=dinner">Dinner</option>
+                </select>
+              </div>
           
-          <div class="row form-group mt-4">
-              <div class="col-12"><button id="searchButton" type="button" class="btn btn-lg btn-block mb-4 mt-4 mt-lg-1">Search</button></div>
-            </div>
-          </form>
+              <div class="row form-group mt-4">
+                  <div class="col-12"><button id="searchButton" type="button" class="btn btn-lg btn-block mb-4 mt-4 mt-lg-1">Search</button></div>
+                </div>
+              </form>
 
         <!-- end of maincontainer -->
         </div>
@@ -180,7 +175,7 @@
       <h3>Alternative Recipe Videos</h3>
     </div>
     <div class="col-sm-12" id="videoResult">
-      
+      <!-- VIDEOS RENDERED HERE -->
     </div>
   
   </div>
