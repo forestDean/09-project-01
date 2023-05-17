@@ -3,7 +3,8 @@
 
 ## Description
 	
-The **CLook Recipe Search App** is a one-stop portal to inspire your meal preparation. Simply enter a food product and select your additional requirements.   
+The **CLook Recipe Search App** is a one-stop portal to inspire your meal preparation. Simply enter a food product and select your additional requirements.     
+
 The `Search` will display a wide range of useful culinary information:
 - a photo of the dish
 - a list of ingredients
@@ -23,7 +24,9 @@ The page is live at https://forestdean.github.io/CLook-recipe-search-app/
 	
 ## Usage
 	   
-This animation illustrates the usage of the **CLook Recipe Search App**:   
+This animation illustrates the usage of the **CLook Recipe Search App**:        
+
+
 ![CLook demonstration](./images/CLook-demonstration.gif)      
 
 - type in a search keyword
