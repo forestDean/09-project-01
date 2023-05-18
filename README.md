@@ -47,9 +47,11 @@ This animation illustrates the usage of the **CLook Recipe Search App**:
 - Google Fonts API - https://developers.google.com/fonts          
 
 ## Roadmap
-<mark>If you have ideas for releases in the future, it is a good idea to list them in the README.</mark>     
+- additional buttons to scroll through alternative recipe options.
+- a diet plan feature to log requirements. 
+- upgrade background image. 
 
-## Credits
+## Creditss
 Johnny Africa - background image - https://johnnyafrica.com
 
 
