@@ -41,7 +41,7 @@ This animation illustrates the usage of the **CLook Recipe Search App**:
 - YouTube API - https://developers.google.com/youtube/v3       
 - Google Fonts API - https://developers.google.com/fonts  
 
-  **Developer API keys have a limited usage restriction. Should your serch query fail, please try again later.**    
+  **Developer API keys have a limited usage restriction. Should your search query fail, please try again later.**    
 
 ## Roadmap
 - additional buttons to scroll through alternative recipe options.
