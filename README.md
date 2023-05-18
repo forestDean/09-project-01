@@ -39,11 +39,14 @@ This animation illustrates the usage of the **CLook Recipe Search App**:
 ## API
 - EDAMAM Recipe Search API - https://developer.edamam.com/edamam-recipe-api       
 - YouTube API - https://developers.google.com/youtube/v3       
-- Google Fonts API - https://developers.google.com/fonts          
+- Google Fonts API - https://developers.google.com/fonts  
+
+  **Developer API keys have a limited usage restriction. Should your serch query fail, please try again later.**    
 
 ## Roadmap
 - additional buttons to scroll through alternative recipe options.
 - a diet plan feature to log requirements. 
+- modal alert for AJAX query failures.
 - upgrade background image. 
 
 ## Credits
