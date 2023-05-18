@@ -51,7 +51,7 @@ This animation illustrates the usage of the **CLook Recipe Search App**:
 - a diet plan feature to log requirements. 
 - upgrade background image. 
 
-## Creditss
+## Credits
 Johnny Africa - background image - https://johnnyafrica.com
 
 
