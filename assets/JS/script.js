@@ -1,3 +1,9 @@
+// API key for Edamam:
+var edamamAppId = "71ac74e3";
+var edamamKey = "3fcda9d3f0ade2ff301139b35205fc8b";
+// API key for YouTube:
+var youtubeKey = "AIzaSyD-wcDJR9Oyt-T37fnkKcONQvYvsoIzj_A";
+
 // Initialize recentSearch array from localStorage
 var recentSearch = JSON.parse(localStorage.getItem("recentSearch")) || [];
 
@@ -16,7 +22,7 @@ function fetchData(foodInput, dietInput, alergiesInput, mealTypeInput) {
 	var queryURL =
 		"https://api.edamam.com/api/recipes/v2?type=public&q=" +
 		foodInput +
-		"&app_id=3cbe9e09&app_key=791997979c9223cd8754bcf36f69f9c2" +
+		"&app_id=" + edamamAppId + "&app_key=" + edamamKey +
 		dietInput +
 		alergiesInput +
 		mealTypeInput;
@@ -80,7 +86,7 @@ function searchVideos(search) {
 	var queryURL =
 		"https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
 		search +
-		"-recipe&type=video&key=AIzaSyDtAcK_TpyMQIgWMG2KE5rlYLkyMZc6_Jo";
+		"-recipe&type=video&key=" + youtubeKey;
 
 	// Make AJAX request to the API
 	$.ajax({
